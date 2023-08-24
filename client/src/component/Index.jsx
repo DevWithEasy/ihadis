@@ -3,7 +3,10 @@ import Header from "./home/Header";
 import HeroMobile from "./home/HeroMobile";
 import HomeSlider from "./home/HomeSlider";
 import Slider from "./home/Slider";
-import Hero from "./home/hero";
+import Hero from "./home/Hero";
+import Footer from "./home/Footer";
+import Category from "./home/Category";
 
 
-export {Header, Hero,Book,HomeSlider,Slider,HeroMobile}
+
+export {Header, Footer,Hero,Category,Book,HomeSlider,Slider,HeroMobile}

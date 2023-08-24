@@ -1,8 +1,5 @@
 import { useRoutes } from "react-router-dom"
-import Home from "./pages/Home"
-import Books from "./pages/book/Books"
-import Subjects from "./pages/subjects/Subjects"
-import Projects from "./pages/Projects"
+import {Books,Layout, Home, Projects, Subjects} from './pages/Index'
 
 function App() {
   const routes = useRoutes([
@@ -11,12 +8,16 @@ function App() {
       element : <Home/>
     },
     {
-      path: '/',
-      element : <Books/>
+      path: '/allhadiths',
+      element : <Layout>
+        <Books/>
+      </Layout>
     },
     {
       path: '/',
-      element : <Subjects/>
+      element : <Layout>
+        <Subjects/>
+      </Layout>
     },
     {
       path: '/',

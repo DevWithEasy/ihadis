@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import logo from "../..//assets/images/home-logo.png";
 
 
-const Header = () => {
+const Header = ({ open, setOpen }) => {
     return (
         <div
-            className='w-full fixed top-0 z-10 flex justify-between items-center p-5 bg-white'
+            className='w-full fixed top-0 z-20 flex justify-between items-center p-5 bg-white'
         >
             <div
                 className='w-4/12 flex items-center space-x-2'
@@ -39,6 +39,7 @@ const Header = () => {
                     <span>হোম</span>
                 </Link>
                 <button
+                    onClick={() => setOpen(!open)}
                     className="p-0.5 hover:text-[#2b9e76]"
                 >
                     হাদিসে যান
@@ -64,12 +65,12 @@ const Header = () => {
                     size={30}
                     className="bg-gray-300 p-1 rounded cursor-pointer"
                 />
-                <Link 
+                <Link
                     to=''
                     className="flex items-center space-x-1 px-6 py-3 bg-[#2b9e76] text-white rounded"
                 >
                     <span>সাপোর্ট করুন</span>
-                    <BiDonateBlood/>
+                    <BiDonateBlood />
                 </Link>
             </div>
         </div>

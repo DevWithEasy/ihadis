@@ -1,27 +1,30 @@
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { GiSettingsKnobs } from 'react-icons/gi';
-import Slider from "react-slick";
-import settings from '../../utils/sliderSetting';
-import SearchSetting from './SearchSetting';
 import HomeSlider from './HomeSlider';
+import SearchSetting from './SearchSetting';
+import image from '../../assets/images/bismillah.svg'
 
 const Hero = () => {
     const [view,setView] = useState(false)
     
     return (
         <div
-            className='relative md:min-h-[30rem] h-[40rem]'
+            className='md:min-h-[30rem] h-[40rem]'
         >
 
             <div
-                className='absolute h-full w-full bg-[#2b9e76] opacity-95 overflow-hidden'
+                className='absolute h-full w-full bg-[#2b9e76] overflow-hidden'
             >
                 <div
-                    className='container h-full w-9/12 mx-auto flex flex-col justify-center items-center space-y-10 bg-contain bg-no-repeat bg-center  bg-opacity-50 text-white '
+                    className='relative container h-full w-9/12 mx-auto flex flex-col justify-center items-center space-y-10 text-white '
                 >
+                    <img
+                        src={image}
+                        className='absolute w-full h-full object-fit opacity-[0.15]'
+                    />
                     <h1
-                        className='text-5xl font-medium'
+                        className='text-5xl font-medium z-10'
                     >
                         আপনার পছন্দের হাদিস খুঁজুন
                     </h1>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import HeroSelect from './HeroSelect';
-import { BiChevronDown,BiChevronRight } from 'react-icons/bi';
+import { BiChevronDown, BiChevronRight } from 'react-icons/bi';
 
 // eslint-disable-next-line react/prop-types
 const SearchSetting = ({ view, setView }) => {
@@ -22,13 +22,17 @@ const SearchSetting = ({ view, setView }) => {
                         হাদিসের বই সিলেক্ট করুন
                     </label>
                     <div
-                        onClick={() => setBook(!book)}
                         className='relative p-2 flex justify-between items-center border rounded-lg'
                     >
-                        <span>
-                            সকল বই
-                        </span>
-                        {!book ? <BiChevronRight/>: <BiChevronDown />}
+                        <button
+                            onClick={() => setBook(!book)}
+                            className='w-full flex justify-between items-center'
+                        >
+                            <span>
+                                সকল বই
+                            </span>
+                            {!subject ? <BiChevronRight /> : <BiChevronDown />}
+                        </button>
                         {book &&
                             <HeroSelect {...{
                                 open: book,
@@ -38,7 +42,6 @@ const SearchSetting = ({ view, setView }) => {
                     </div>
                 </div>
                 <div
-                    onClick={() => setSubject(!subject)}
                     className='w-1/2 space-y-2'
                 >
                     <label
@@ -47,12 +50,17 @@ const SearchSetting = ({ view, setView }) => {
                         হাদিসের বই সিলেক্ট করুন
                     </label>
                     <div
-                        className='relative p-2 flex justify-between items-center border rounded-lg'
+                        className='relative p-2  border rounded-lg'
                     >
-                        <span>
-                            সকল বই
-                        </span>
-                        {!subject ? <BiChevronRight/>: <BiChevronDown />}
+                        <button
+                            onClick={() => setSubject(!subject)}
+                            className='w-full flex justify-between items-center'
+                        >
+                            <span>
+                                সকল বই
+                            </span>
+                            {!subject ? <BiChevronRight /> : <BiChevronDown />}
+                        </button>
                         {subject &&
                             <HeroSelect {...{
                                 open: subject,
@@ -69,17 +77,27 @@ const SearchSetting = ({ view, setView }) => {
                     className='p-2 flex items-center space-x-3 '
                 >
                     <input
+                        id='something'
                         type='checkbox'
                     />
-                    <label>আংশিক মিল</label>
+                    <label
+                        htmlFor='something'
+                    >
+                        আংশিক মিল
+                    </label>
                 </div>
                 <div
                     className='p-2 flex items-center space-x-3 '
                 >
                     <input
+                        id='full'
                         type='checkbox'
                     />
-                    <label>হুবুহু মিল</label>
+                    <label
+                        htmlFor='full'
+                    >
+                        হুবুহু মিল
+                    </label>
                 </div>
             </div>
             <div

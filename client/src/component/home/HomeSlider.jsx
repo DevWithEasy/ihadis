@@ -7,27 +7,33 @@ const HomeSlider = () => {
             className='w-8/12 mx-auto text-xl text-white'
         >
             <Slider {...settings}>
-                <div>
-                    <p>
+                <div
+                className="space-y-5"
+                >
+                    <p className="leading-10">
                         এ মর্মে আল্লাহ তা’আলার বাণীঃ “নিশ্চয়ই আমি আপনার প্রতি সেরূপ ওয়াহী প্রেরণ করেছি যেরূপ নূহ ও তাঁর পরবর্তী নবীদের প্রতি ওয়াহী প্রেরণ করেছিলাম”।
                     </p>
-                    <p>
+                    <p className="text-center">
                         (সূরা আন-নিসা ৪/১৬৩)
                     </p>
                 </div>
-                <div>
-                    <p>
+                <div
+                    className="space-y-5"
+                >
+                    <p className="leading-10">
                         এ মর্মে আল্লাহ তা’আলার বাণীঃ “নিশ্চয়ই আমি আপনার প্রতি সেরূপ ওয়াহী প্রেরণ করেছি যেরূপ নূহ ও তাঁর পরবর্তী নবীদের প্রতি ওয়াহী প্রেরণ করেছিলাম”।
                     </p>
-                    <p>
+                    <p className="text-center">
                         (সূরা আন-নিসা ৪/১৬৩)
                     </p>
                 </div>
-                <div>
-                    <p>
+                <div
+                className="space-y-5"
+                >
+                    <p className="leading-10">
                         এ মর্মে আল্লাহ তা’আলার বাণীঃ “নিশ্চয়ই আমি আপনার প্রতি সেরূপ ওয়াহী প্রেরণ করেছি যেরূপ নূহ ও তাঁর পরবর্তী নবীদের প্রতি ওয়াহী প্রেরণ করেছিলাম”।
                     </p>
-                    <p>
+                    <p className="text-center">
                         (সূরা আন-নিসা ৪/১৬৩)
                     </p>
                 </div>

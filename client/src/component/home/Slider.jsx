@@ -1,11 +1,16 @@
 import HomeSlider from './HomeSlider';
+import image from '../../assets/images/mosque.png'
 
 const Slider = () => {
     return (
         <div
-            className='md:w-9/12 mx-auto py-10 bg-[#2e9e76] overflow-hidden rounded-2xl'
+            className='relative md:w-9/12 mx-auto py-20 bg-[#2e9e76] overflow-hidden rounded-2xl'
         >
-            <HomeSlider/>
+            <img
+                src={image}
+                className='absolute w-full h-full opacity-10'
+            />
+            <HomeSlider />
         </div>
     );
 };
