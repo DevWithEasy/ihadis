@@ -1,0 +1,79 @@
+import { BiDonateBlood } from 'react-icons/bi';
+import { HiOutlineHome } from 'react-icons/hi';
+import { PiMoonStarsLight } from 'react-icons/pi';
+import { Link } from "react-router-dom";
+import logo from "../..//assets/images/home-logo.png";
+
+
+const Header = () => {
+    return (
+        <div
+            className='w-full fixed top-0 z-10 flex justify-between items-center p-5 bg-white'
+        >
+            <div
+                className='w-4/12 flex items-center space-x-2'
+            >
+                <Link
+                    to='/'
+                >
+                    <img
+                        src={logo}
+                        className="h-10 w-10"
+                    />
+                </Link>
+                <Link
+                    to='/'
+                    className="text-2xl font-medium text-[#2b9e76]"
+                >
+                    আল হাদিস
+                </Link>
+            </div>
+            <div
+                className='w-4/12 flex justify-between items-center font-medium'
+            >
+                <Link
+                    to='/'
+                    className="flex items-center space-x-1 px-6 py-2 bg-[#2b9e76] text-white rounded-full"
+                >
+                    <HiOutlineHome size={20} />
+                    <span>হোম</span>
+                </Link>
+                <button
+                    className="p-0.5 hover:text-[#2b9e76]"
+                >
+                    হাদিসে যান
+                </button>
+                <Link
+                    to='/'
+                    className="p-0.5 hover:text-[#2b9e76]"
+                >
+                    হাদিস গ্রন্থসমূহ
+                </Link>
+                <Link
+                    to='/'
+                    className="p-0.5 hover:text-[#2b9e76]"
+                >
+
+                    আমাদের প্রজেক্ট
+                </Link>
+            </div>
+            <div
+                className='w-4/12 flex justify-end items-center space-x-4'
+            >
+                <PiMoonStarsLight
+                    size={30}
+                    className="bg-gray-300 p-1 rounded cursor-pointer"
+                />
+                <Link 
+                    to=''
+                    className="flex items-center space-x-1 px-6 py-3 bg-[#2b9e76] text-white rounded"
+                >
+                    <span>সাপোর্ট করুন</span>
+                    <BiDonateBlood/>
+                </Link>
+            </div>
+        </div>
+    );
+};
+
+export default Header;
