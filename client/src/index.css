@@ -9,3 +9,7 @@
 .slick-next {
     display: none !important;
 }
+
+.active{
+    @apply bg-[#2b9e76] text-white
+}

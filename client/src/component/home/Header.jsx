@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import logo from "../..//assets/images/home-logo.png";
 
 
+// eslint-disable-next-line react/prop-types
 const Header = ({ open, setOpen }) => {
     return (
         <div
@@ -45,7 +46,7 @@ const Header = ({ open, setOpen }) => {
                     হাদিসে যান
                 </button>
                 <Link
-                    to='/'
+                    to='/allhadiths'
                     className="p-0.5 hover:text-[#2b9e76]"
                 >
                     হাদিস গ্রন্থসমূহ
@@ -63,7 +64,7 @@ const Header = ({ open, setOpen }) => {
             >
                 <PiMoonStarsLight
                     size={30}
-                    className="bg-gray-300 p-1 rounded cursor-pointer"
+                    className="bg-gray-200 p-1 rounded cursor-pointer"
                 />
                 <Link
                     to=''

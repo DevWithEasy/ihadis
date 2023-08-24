@@ -6,6 +6,7 @@ import { useState } from 'react';
 // eslint-disable-next-line react/prop-types
 const GoToModal = ({ open, setOpen, books }) => {
     const [view, setView] = useState(false)
+    const [book, setBook] = useState(books[0])
     return (
         <div
             className="h-screen w-full fixed top-0 left-0 z-40 bg-black/50 flex justify-center items-center"
@@ -37,7 +38,7 @@ const GoToModal = ({ open, setOpen, books }) => {
                         <span>
                             {books &&
                                 // eslint-disable-next-line react/prop-types
-                                books[0]?.title
+                                book?.title
                             }
                         </span>
                         {!view ? <BiChevronRight /> : <BiChevronDown />}
@@ -49,7 +50,10 @@ const GoToModal = ({ open, setOpen, books }) => {
                             {books.map((book) =>
                                 <button
                                     key={book?._id}
-                                    value={book?.id}
+                                    onClick={() => {
+                                        setBook(book)
+                                        setView(!view)
+                                    }}
                                     className='w-full text-left px-3 py-1 hover:bg-gray-100 rounded-lg'
                                 >
                                     {book?.title}
