@@ -6,7 +6,7 @@ const Books = () => {
     const {books} = useHadithStore()
     return (
         <div
-            className="w-9/12 h-full mx-auto overflow-y-auto"
+            className="w-9/12 px-2 h-full mx-auto overflow-y-auto"
         >
             <div
                 className="p-4 flex justify-between items-center bg-white rounded-xl"
