@@ -61,7 +61,7 @@ const Category = ({categories}) => {
                 className="flex justify-center"
             >
                 <Link 
-                to=''
+                to='/allsubjects'
                 className="flex items-center space-x-2 bg-[#2b9e76] px-4 py-3 text-white rounded-xl"
                 >
                     <img

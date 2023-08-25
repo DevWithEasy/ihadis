@@ -52,7 +52,7 @@ const Header = ({ open, setOpen }) => {
                     হাদিস গ্রন্থসমূহ
                 </Link>
                 <Link
-                    to='/'
+                    to='/projects'
                     className="p-0.5 hover:text-[#2b9e76]"
                 >
 
@@ -67,7 +67,7 @@ const Header = ({ open, setOpen }) => {
                     className="bg-gray-200 p-1 rounded cursor-pointer"
                 />
                 <Link
-                    to=''
+                    to='/donate'
                     className="flex items-center space-x-1 px-6 py-3 bg-[#2b9e76] text-white rounded"
                 >
                     <span>সাপোর্ট করুন</span>
