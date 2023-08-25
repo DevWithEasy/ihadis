@@ -9,7 +9,7 @@ const dbConnection = require('./config/dbConnection');
 const errorHandler = require('./middlewares/errorHandler');
 
 //serve client side file path
-app.use(express.static(path.join(__dirname, 'public')))
+// app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, './client/dist/')))
 app.use(helmet.contentSecurityPolicy({
     directives: {
