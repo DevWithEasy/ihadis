@@ -17,23 +17,23 @@ const Hero = () => {
                 className='absolute h-full w-full bg-[#2b9e76] overflow-hidden'
             >
                 <div
-                    className='relative container h-full w-9/12 mx-auto flex flex-col justify-center items-center space-y-10 text-white '
+                    className='relative container h-full md:w-9/12 mx-auto flex flex-col justify-center items-center space-y-10 text-white '
                 >
                     <img
                         src={image}
                         className='absolute w-full h-full object-fit opacity-[0.15]'
                     />
                     <h1
-                        className='text-5xl font-medium z-10'
+                        className='text-2xl md:text-5xl font-medium z-10'
                     >
                         আপনার পছন্দের হাদিস খুঁজুন
                     </h1>
                     <div
-                        className='relative w-7/12 mx-auto flex justify-between items-center space-x-3 bg-white p-1 rounded-md'
+                        className='relative md:w-7/12 mx-auto flex justify-between items-center space-x-3 bg-white p-1 rounded-md'
                     >
                         <input
                             placeholder='Search Hadith'
-                            className='w-full px-4 text-black focus:outline-none'
+                            className='w-full px-4 text-black focus:outline-none text-sm'
                         />
                         <GiSettingsKnobs
                             onClick={()=>setView(!view)}

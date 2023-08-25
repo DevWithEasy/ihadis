@@ -7,7 +7,7 @@ import { toBengaliNumber } from 'bengali-number';
 const Book = ({ books }) => {
     return (
         <div
-            className=" md:w-9/12 mx-auto py-10 space-y-5"
+            className="mx-4 md:w-9/12 md:mx-auto py-5 md:py-10 space-y-5"
         >
             <h2
                 className="text-3xl text-center"
@@ -17,22 +17,22 @@ const Book = ({ books }) => {
             <div
                 className="w-full flex justify-center items-center"
             >
-                <p className="w-1/2 text-center">
+                <p className="md:w-1/2 text-gray-500 text-center">
                     হাদিসের কিতাবগুলো মুসলিমদের জন্য হেদায়েত এবং অনুপ্রেরণার একটি গুরুত্বপূর্ণ উৎস। এই কিতাবগুলো মহানবী মুহাম্মদ (সাল্লাল্লাহু আলাইহি ওয়া সালাম)-এর সীরাত(জীবনী) ও দিক-নির্দেশনার প্রতি অন্তর্দৃষ্টি প্রদান করে।
                 </p>
             </div>
             <div
-                className="grid grid-cols-3 gap-4 py-5"
+                className="grid md:grid-cols-3 gap-4 py-5"
             >
                 {books &&
                     // eslint-disable-next-line react/prop-types
                     books.slice(0, 9).map(book =>
                         <div
                             key={book._id}
-                            className="w-full p-5 group cursor-pointer  drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] bg-white flex justify-between items-center rounded-2xl transition-all duration-500"
+                            className="w-full p-5 group cursor-pointer  drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] bg-white flex justify-between space-x-3 items-center rounded-2xl transition-all duration-500"
                         >
                             <div
-                                className="w-3/12"
+                                className="w-12"
                             >
                                 <div
                                     className="flex justify-center items-center bg-gray-200 group-hover:bg-[#2b9e76] group-hover:text-white text-gray-400 w-12 h-12 rounded-full"
@@ -41,7 +41,7 @@ const Book = ({ books }) => {
                                 </div>
                             </div>
                             <div
-                                className="w-9/12"
+                                className="w-full space-y-1"
                             >
                                 <p
                                     className="group-hover:text-[#2b9e76] font-medium"

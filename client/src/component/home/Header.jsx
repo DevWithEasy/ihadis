@@ -1,6 +1,7 @@
 import { BiDonateBlood } from 'react-icons/bi';
 import { HiOutlineHome } from 'react-icons/hi';
 import { PiMoonStarsLight } from 'react-icons/pi';
+import {AiOutlineMenu} from 'react-icons/ai' 
 import { Link } from "react-router-dom";
 import logo from "../..//assets/images/home-logo.png";
 
@@ -30,7 +31,7 @@ const Header = ({ open, setOpen }) => {
                 </Link>
             </div>
             <div
-                className='w-4/12 flex justify-between items-center font-medium'
+                className='hidden md:w-4/12 md:flex justify-between items-center font-medium'
             >
                 <Link
                     to='/'
@@ -66,9 +67,13 @@ const Header = ({ open, setOpen }) => {
                     size={30}
                     className="bg-gray-200 p-1 rounded cursor-pointer"
                 />
+                <AiOutlineMenu
+                    size={30}
+                    className="bg-gray-200 p-1 rounded cursor-pointer"
+                />
                 <Link
                     to='/donate'
-                    className="flex items-center space-x-1 px-6 py-3 bg-[#2b9e76] text-white rounded"
+                    className="hidden md:flex items-center space-x-1 px-6 py-3 bg-[#2b9e76] text-white rounded"
                 >
                     <span>সাপোর্ট করুন</span>
                     <BiDonateBlood />

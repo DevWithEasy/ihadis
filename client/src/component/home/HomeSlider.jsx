@@ -4,7 +4,7 @@ import Slider from "react-slick";
 const HomeSlider = () => {
     return (
         <div
-            className='w-8/12 mx-auto text-xl text-white'
+            className='w-8/12 mx-auto overflow-hidden text-xl text-white'
         >
             <Slider {...settings}>
                 <div
