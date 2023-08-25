@@ -1,5 +1,5 @@
 import { useRoutes } from "react-router-dom"
-import {Books,Layout, Home, Projects, Subjects,Bookmark,Tahkik,Donate ,Writers,Privacy} from './pages/Index'
+import { Book, Bookmark, Books, Chapter, Donate, Home, Layout, Privacy, Projects, Subjects, Tahkik, Writers } from './pages/Index'
 
 function App() {
   const routes = useRoutes([
@@ -7,10 +7,23 @@ function App() {
       path: '/',
       element : <Home/>
     },
+    
     {
       path: '/allhadiths',
       element : <Layout>
         <Books/>
+      </Layout>
+    },
+    {
+      path: '/:name',
+      element : <Layout>
+        <Book/>
+      </Layout>
+    },
+    {
+      path: '/:name/:chapterId',
+      element : <Layout>
+        <Chapter/>
       </Layout>
     },
     {

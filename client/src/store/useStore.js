@@ -4,10 +4,16 @@ import {persist,devtools} from 'zustand/middleware'
 const hadithStore = (set)=>({
     books : [],
     categories : [],
+    chapters : [],
     addBookSub : (data)=>{
         set(()=>({
             books : data.books,
             categories : data.categories
+        }))
+    },
+    addChapters : (data)=>{
+        set(()=>({
+            chapters : data,
         }))
     }
 })

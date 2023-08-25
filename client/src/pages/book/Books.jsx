@@ -1,9 +1,10 @@
-import { BiSearch } from "react-icons/bi";
-import useHadithStore from "../../store/useStore";
 import { toBengaliNumber } from "bengali-number";
+import { BiSearch } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import useHadithStore from "../../store/useStore";
 
 const Books = () => {
-    const {books} = useHadithStore()
+    const { books } = useHadithStore()
     return (
         <div
             className="w-9/12 px-2 h-full mx-auto overflow-y-auto"
@@ -14,20 +15,20 @@ const Books = () => {
                 <h2
                     className="text-2xl font-medium"
                 >
-                সকল বই
+                    সকল বই
                 </h2>
                 <div
-                        className='flex justify-between items-center space-x-2 p-3 border-2 rounded-lg'
-                    >
-                        <BiSearch
-                            className='text-gray-500'
-                        />
-                        <input
-                            type='text'
-                            placeholder='Search for filter'
-                            className='font-light text-sm focus:outline-none'
-                        />
-                    </div>
+                    className='flex justify-between items-center space-x-2 p-3 border-2 rounded-lg'
+                >
+                    <BiSearch
+                        className='text-gray-500'
+                    />
+                    <input
+                        type='text'
+                        placeholder='Search for filter'
+                        className='font-light text-sm focus:outline-none'
+                    />
+                </div>
             </div>
             <div
                 className="grid grid-cols-2 gap-4 py-5"
@@ -35,7 +36,8 @@ const Books = () => {
                 {books &&
                     // eslint-disable-next-line react/prop-types
                     books.map(book =>
-                        <div
+                        <Link to={`/${book?.book_name}`}
+                            // onClick={() => navigate()}
                             key={book._id}
                             className="w-full p-5 group cursor-pointer bg-white flex justify-between items-center rounded-2xl transition-all duration-500"
                         >
@@ -60,7 +62,7 @@ const Books = () => {
                                     হাদিসের রেঞ্জ: {toBengaliNumber(book?.number_of_hadis)}
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     )
                 }
             </div>

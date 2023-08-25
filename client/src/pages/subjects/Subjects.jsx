@@ -1,6 +1,7 @@
 import { BiSearch } from "react-icons/bi";
 import useHadithStore from "../../store/useStore";
 import { toBengaliNumber } from "bengali-number";
+import { Link } from "react-router-dom";
 
 const Subjects = () => {
     const {categories} = useHadithStore()
@@ -35,7 +36,8 @@ const Subjects = () => {
                 {categories &&
                     // eslint-disable-next-line react/prop-types
                     categories.map(category =>
-                        <div
+                        <Link
+                            to={``}
                             key={category._id}
                             className="w-full p-5 group cursor-pointer bg-white flex justify-between items-center rounded-2xl transition-all duration-500"
                         >
@@ -60,7 +62,7 @@ const Subjects = () => {
                                     হাদিসের রেঞ্জ: {toBengaliNumber(category?.number_of_hadis)}
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     )
                 }
             </div>

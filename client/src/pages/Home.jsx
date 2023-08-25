@@ -24,7 +24,7 @@ const Home = () => {
     useEffect(()=>{
         getData()
     },[])
-
+    
     return (
         <div
             className="bg-gray-50"

@@ -1,14 +1,16 @@
-import Layout from "./Layout";
-import Books from "./book/Books";
-import Home from "./Home";
-import Projects from "./Projects";
-import Subjects from "./subjects/Subjects";
 import Bookmark from "./Bookmark";
-import Tahkik from "./Tahkik";
 import Donate from "./Donate";
-import Writers from "./Writers";
+import Home from "./Home";
+import Layout from "./Layout";
 import Privacy from "./Privacy";
+import Projects from "./Projects";
+import Tahkik from "./Tahkik";
+import Writers from "./Writers";
+import Book from "./book/Book";
+import Books from "./book/Books";
+import Chapter from "./book/Chapter";
+import Subjects from "./subjects/Subjects";
 
 
-export { Books,Layout, Home, Projects, Subjects,Bookmark,Tahkik,Donate ,Writers,Privacy};
+export { Book, Bookmark, Books, Chapter, Donate, Home, Layout, Privacy, Projects, Subjects, Tahkik, Writers };
 

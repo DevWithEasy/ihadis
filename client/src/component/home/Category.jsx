@@ -50,7 +50,7 @@ const Category = ({categories}) => {
                             {category?.bn}
                         </p>
                         <p className="text-gray-500 text-sm">
-                            {/* হাদিসের রেঞ্জ: {toBengaliNumber(book?.number_of_hadis)} */}
+                            হাদিসের রেঞ্জ: {toBengaliNumber(category?.number_of_hadis)}
                         </p>
                     </div>
                 </div>
