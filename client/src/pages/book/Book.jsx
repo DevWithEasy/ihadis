@@ -109,7 +109,7 @@ const Book = () => {
                                                 {book?.title}
                                             </p>
                                             <p className="text-gray-500 text-sm">
-                                                হাদিসের রেঞ্জ: {toBengaliNumber(book?.number_of_hadis)}
+                                                সর্বমোট হাদিসঃ {toBengaliNumber(book?.number_of_hadis)}
                                             </p>
                                         </div>
                                     </Link>

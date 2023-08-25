@@ -64,7 +64,21 @@ exports.getBookChapters = async(req, res, next) => {
 
 exports.getHadithByChapter = async(req, res, next) => {
     try {
-        const hadiths = await Hadith.find({book_id: req.params.id , chapter_id : req.params.chapterId}).sort({hadith_id : 1})
+        const findHadiths = await Hadith.find({book_id: req.params.id , chapter_id : req.params.chapterId}).sort({hadith_id : 1})
+
+        const hadiths =[]
+
+        await Promise.all(
+            findHadiths.map(async(hadith)=>{
+                const section = await Section.findOne({section_id : hadith.section_id ,book_id : hadith.book_id,chapter_id : hadith.chapter_id})
+                hadiths.push({
+                    ... hadith._doc,...section._doc
+                })
+            })
+        )
+
+        hadiths.sort((a,b)=> a - b)
+
         res.status(200).json({
             success : true,
             status : 200,

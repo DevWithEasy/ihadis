@@ -12,8 +12,8 @@ const Footer = () => {
                     আল হাদিস
                 </Link>
             </div>
-            <div className="flex justify-between space-x-4 pt-5">
-                <div className="w-4/12 space-y-3">
+            <div className="grid md:grid-cols-4 md:gap-x-6 pt-5">
+                <div className="w-full space-y-3">
                     <h3 className="text-lg font-medium">হাদিস পড়ুন, শিখুন এবং জানুন</h3>
                     <p
                         className="text-gray-500"
@@ -26,8 +26,8 @@ const Footer = () => {
                         যেকোনো স্থানে যেকোন সময় স্বাচ্ছন্দ্যে হাদীস পড়তে পারেন।
                     </p>
                 </div>
-                <div className="w-8/12 flex justify-between space-x-4">
-                    <div className="w-4/12 space-y-3">
+                <div>
+                    <div className="w-full space-y-3">
                         <h3 className="text-lg font-medium">
                             নেভিগেট
                         </h3>
@@ -68,7 +68,8 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-4/12 space-y-3">
+                </div>
+                <div className="w-full space-y-3">
                         <h3 className="text-lg font-medium">
                             আমাদের প্রজেক্ট সমূহ
                         </h3>
@@ -91,26 +92,25 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-4/12 space-y-4">
-                        <h3 className="text-lg font-medium">
-                            জনপ্রিয় সাইটসমূহ
-                        </h3>
-                        <div
-                            className="grid gap-4 text-gray-500"
-                        >
-                            <Link to=''>
-                                Quran.com
-                            </Link>
-                            <Link to=''>
-                                Sunnah.com
-                            </Link>
-                            <Link to=''>
-                                Islamhouse.com
-                            </Link>
-                            <Link to=''>
-                                Response-Anti-Islam
-                            </Link>
-                        </div>
+                <div className="w-full space-y-4">
+                    <h3 className="text-lg font-medium">
+                        জনপ্রিয় সাইটসমূহ
+                    </h3>
+                    <div
+                        className="grid gap-4 text-gray-500"
+                    >
+                        <Link to=''>
+                            Quran.com
+                        </Link>
+                        <Link to=''>
+                            Sunnah.com
+                        </Link>
+                        <Link to=''>
+                            Islamhouse.com
+                        </Link>
+                        <Link to=''>
+                            Response-Anti-Islam
+                        </Link>
                     </div>
                 </div>
             </div>
