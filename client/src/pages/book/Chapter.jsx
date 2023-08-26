@@ -11,7 +11,7 @@ const Chapter = () => {
     const { name, chapterId } = useParams()
     const [state, setState] = useState('chapter')
     const [book] = useState(books.find(book => book.book_name === name))
-    const [chapter, setChapter] = useState(chapters.find(chapter => chapter.id == chapterId))
+    const [chapter, setChapter] = useState(chapters.find(chapter => chapter.chapter_id == chapterId))
     const [hadiths, setHadiths] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -30,14 +30,14 @@ const Chapter = () => {
     }
 
     const handleChapterChange = (id) => {
-        const findChapter = chapters.find(chapter => chapter.id === id)
+        const findChapter = chapters.find(chapter => chapter.chapter_id === id)
         setChapter(findChapter)
     }
 
     useEffect(() => {
-        chapter?.id && getHadiths(book?.id, chapter?.id)
+        chapter?.chapter_id && getHadiths(book?.id, chapter?.chapter_id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [chapter?.id])
+    }, [chapter?.chapter_id])
 
     return (
         <div

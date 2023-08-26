@@ -19,8 +19,8 @@ const ChapterList = ({name,page,handleChange}) => {
                                 // eslint-disable-next-line react/prop-types
                                 chapters.map(chapter =>
                                     <Link
-                                        onClick={()=>handleChangeChapter(chapter?.id)}
-                                        to={`/${name}/${chapter?.id}`}
+                                        onClick={()=>handleChangeChapter(chapter?.chapter_id)}
+                                        to={`/${name}/${chapter?.chapter_id}`}
                                         key={chapter._id}
                                         className="w-full p-5 group cursor-pointer bg-white hover:bg-green-100 flex justify-between items-center space-x-3 rounded-2xl transition-all duration-500"
                                     >

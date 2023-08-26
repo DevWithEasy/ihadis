@@ -64,26 +64,41 @@ exports.getBookChapters = async(req, res, next) => {
 
 exports.getHadithByChapter = async(req, res, next) => {
     try {
-        const findHadiths = await Hadith.find({book_id: req.params.id , chapter_id : req.params.chapterId}).sort({hadith_id : 1})
+        // const findHadiths = await Hadith.find({book_id: req.params.id , chapter_id : req.params.chapterId}).sort({hadith_id : 1})
 
-        const hadiths =[]
+        // const hadiths =[]
+
+        // await Promise.all(
+        //     findHadiths.map(async(hadith)=>{
+        //         const section = await Section.findOne({section_id : hadith.section_id ,book_id : hadith.book_id,chapter_id : hadith.chapter_id})
+        //         hadiths.push({
+        //             ... hadith._doc,...section._doc
+        //         })
+        //     })
+        // )
+
+        // hadiths.sort((a,b)=> a - b)
+
+        const sections = await Section.find({book_id: req.params.id , chapter_id : req.params.chapterId}).sort({id : 1})
+
+        const data = []
 
         await Promise.all(
-            findHadiths.map(async(hadith)=>{
-                const section = await Section.findOne({section_id : hadith.section_id ,book_id : hadith.book_id,chapter_id : hadith.chapter_id})
-                hadiths.push({
-                    ... hadith._doc,...section._doc
+            sections.map(async(section)=>{
+                const  hadiths = await Hadith.find({book_id: req.params.id , chapter_id : req.params.chapterId,section_id : section.section_id})
+                data.push({
+                    ...section._doc,hadiths
                 })
             })
         )
 
-        hadiths.sort((a,b)=> a - b)
+        data.sort((a,b)=> a.id - b.id)
 
         res.status(200).json({
             success : true,
             status : 200,
             message : 'Hadiths found',
-            data : hadiths
+            data : data
         })
     } catch (error) {
         res.status(500).json({
