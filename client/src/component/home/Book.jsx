@@ -27,7 +27,8 @@ const Book = ({ books }) => {
                 {books &&
                     // eslint-disable-next-line react/prop-types
                     books.slice(0, 9).map(book =>
-                        <div
+                        <Link
+                            to={`/${book?.book_name}`}
                             key={book._id}
                             className="w-full p-5 group cursor-pointer  drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] bg-white flex justify-between space-x-3 items-center rounded-2xl transition-all duration-500"
                         >
@@ -52,7 +53,7 @@ const Book = ({ books }) => {
                                     হাদিসের রেঞ্জ: {toBengaliNumber(book?.number_of_hadis)}
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     )
                 }
             </div>

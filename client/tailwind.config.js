@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily : {
         'bangla' : ['Noto Serif Bengali', 'serif'],
-        'arabic' : ['Noto Naskh Arabic', 'serif']
+        'arabic' : ['Lateef', 'serif']
       }
     }
   },
