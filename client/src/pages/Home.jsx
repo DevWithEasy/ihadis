@@ -6,10 +6,12 @@ import GoToModal from "../component/GoToModal";
 import { Book, Head,Category, Footer, Header, Hero, HeroMobile, Slider } from "../component/Index";
 import useHadithStore from "../store/useStore";
 import apiUrl from "../utils/apiUrl";
+import HomeMenu from '../component/home/HomeMenu';
 
 
 const Home = () => {
     const [open,setOpen] = useState(false)
+    const [menu,setMenu] = useState(false)
     const {books,categories,addBookSub} = useHadithStore()
     const getData = async ()=>{
         try {
@@ -33,7 +35,7 @@ const Home = () => {
                 title : 'iHadith - Read Hadith Online'
             }}/>
 
-            <Header {...{open,setOpen}}/>
+            <Header {...{open,setOpen,menu,setMenu}}/>
 
             <Hero/>
 
@@ -51,6 +53,9 @@ const Home = () => {
             <Footer/>
             {open &&
                 <GoToModal {...{open,setOpen,books}}/>
+            }
+            {menu &&
+                <HomeMenu {...{menu,setMenu}}/>
             }
         </div>
     );

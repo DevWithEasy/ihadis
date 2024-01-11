@@ -3,11 +3,11 @@ import { HiOutlineHome } from 'react-icons/hi';
 import { PiMoonStarsLight } from 'react-icons/pi';
 import {AiOutlineMenu} from 'react-icons/ai' 
 import { Link } from "react-router-dom";
-import logo from "../..//assets/images/home-logo.png";
+import logo from "../../assets/images/home-logo.png";
 
 
 // eslint-disable-next-line react/prop-types
-const Header = ({ open, setOpen }) => {
+const Header = ({ open, setOpen ,menu,setMenu}) => {
     return (
         <div
             className='w-full fixed top-0 z-20 flex justify-between items-center p-4 bg-white'
@@ -69,6 +69,7 @@ const Header = ({ open, setOpen }) => {
                 />
                 <AiOutlineMenu
                     size={30}
+                    onClick={()=>setMenu(!menu)}
                     className="bg-gray-200 p-1 rounded cursor-pointer"
                 />
                 <Link

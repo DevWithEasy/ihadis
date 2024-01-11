@@ -41,7 +41,7 @@ const BookSearchModal = ({ view, setView }) => {
             >
                 <input
                     placeholder='Search hadith'
-                    className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl'
+                    className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none'
                 />
                 <div
                     className='w-full space-y-2'
@@ -80,7 +80,7 @@ const BookSearchModal = ({ view, setView }) => {
                     <label
                         className='block'
                     >
-                        হাদিসের বই সিলেক্ট করুন
+                        অধ্যায় সিলেক্ট করুন
                     </label>
                     <div
                         className='relative p-2  border rounded-lg'
@@ -90,7 +90,7 @@ const BookSearchModal = ({ view, setView }) => {
                             className='w-full flex justify-between items-center'
                         >
                             <span>
-                                সকল বই
+                                সকল অধ্যায়
                             </span>
                             {!subject ? <BiChevronRight /> : <BiChevronDown />}
                         </button>
