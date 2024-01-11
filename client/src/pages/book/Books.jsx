@@ -7,10 +7,10 @@ const Books = () => {
     const { books } = useHadithStore()
     return (
         <div
-            className="w-9/12 px-2 h-full mx-auto overflow-y-auto"
+            className="w-full md:w-9/12 px-2 h-full mx-auto overflow-y-auto"
         >
             <div
-                className="p-4 flex justify-between items-center bg-white rounded-xl"
+                className="mt-2 md:mt-0 p-4 flex flex-col md:flex-row md:justify-between items-center space-y-3 md:space-y-0 bg-white rounded-xl"
             >
                 <h2
                     className="text-2xl font-medium"
@@ -18,7 +18,7 @@ const Books = () => {
                     সকল বই
                 </h2>
                 <div
-                    className='flex justify-between items-center space-x-2 p-3 border-2 rounded-lg'
+                    className='w-full md:w-9/12 flex justify-between items-center space-x-2 p-3 border-2 rounded-lg'
                 >
                     <BiSearch
                         className='text-gray-500'
@@ -26,12 +26,12 @@ const Books = () => {
                     <input
                         type='text'
                         placeholder='Search for filter'
-                        className='font-light text-sm focus:outline-none'
+                        className='w-full font-light text-sm focus:outline-none'
                     />
                 </div>
             </div>
             <div
-                className="grid grid-cols-2 gap-4 py-5"
+                className="grid md:grid-cols-2 gap-2 md:gap-4 py-5"
             >
                 {books &&
                     // eslint-disable-next-line react/prop-types

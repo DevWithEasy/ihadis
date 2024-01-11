@@ -9,6 +9,8 @@ import { useState } from 'react'
 import GoToModal from '../component/GoToModal'
 import useHadithStore from '../store/useStore'
 import MenuPopup from '../component/MenuPopup'
+import NavigationFooter from '../component/NavigationFooter'
+import BookSearchModal from '../component/book/BookSearchModal'
 // import {PiBooksFill} from 'react-icons/li'
 
 
@@ -17,12 +19,14 @@ const Layout = ({ children }) => {
     const { books } = useHadithStore()
     const [open, setOpen] = useState(false)
     const [menu, setMenu] = useState(false)
+    const [view, setView] = useState(false)
+
     return (
         <div
             className="h-screen flex bg-white"
         >
             <div
-                className='fixed top-0 left-0 w-full p-4 flex justify-between'
+                className='fixed top-0 left-0 w-full p-4 flex justify-between z-10 bg-white rorder-b shadow md:shadow-none'
             >
                 <h1
                     className='flex items-center space-x-4'
@@ -39,10 +43,10 @@ const Layout = ({ children }) => {
                     </Link>
                 </h1>
                 <div
-                    className='flex justify-end items-center space-x-6'
+                    className='flex justify-end items-center space-x-2 md:space-x-6'
                 >
                     <div
-                        className='flex justify-between items-center space-x-2 p-3 border-2 rounded-lg'
+                        className='hidden md:flex justify-between items-center space-x-2 p-3 border-2 rounded-lg'
                     >
                         <BiSearch
                             className='text-gray-500'
@@ -53,6 +57,11 @@ const Layout = ({ children }) => {
                             className='font-light text-sm focus:outline-none'
                         />
                     </div>
+                    <BiSearch
+                        size={40}
+                        onClick={()=>setView(!view)}
+                        className="bg-gray-200 p-2 rounded cursor-pointer"
+                    />
                     <PiMoonStarsLight
                         size={40}
                         className="bg-gray-200 p-2 rounded cursor-pointer"
@@ -60,7 +69,7 @@ const Layout = ({ children }) => {
                 </div>
             </div>
             <div
-                className="relative w-24 mt-20 p-4 pb-32 flex flex-col justify-between items-center"
+                className="relative hidden w-24 mt-20 p-4 pb-32 md:flex flex-col justify-between items-center"
             >
                 <NavLink
                     to='/'
@@ -120,8 +129,9 @@ const Layout = ({ children }) => {
                     />
                 </NavLink>
             </div>
+            <NavigationFooter {...{ open, setOpen }} />
             <div
-                className="relative w-full bg-gray-100 rounded-tl-3xl mt-20 p-4"
+                className="relative w-full bg-gray-100 md:rounded-tl-3xl pt-[81px] md:mt-[80px] md:p-4"
             >
                 {children}
 
@@ -131,6 +141,9 @@ const Layout = ({ children }) => {
             </div>
             {open &&
                 <GoToModal {...{ open, setOpen, books }} />
+            }
+            {view &&
+                <BookSearchModal {...{ view, setView }} />
             }
         </div>
     );

@@ -9,10 +9,10 @@ const ChaptersSkalaton = () => {
     const { chapters } = useHadithStore()
     return (
         <div
-                className="w-full h-full flex flex-col bg-white rounded-2xl"
+                className="mt-2 w-full h-full flex flex-col bg-white rounded-2xl"
             >
                 <div
-                    className="bg-gray-50 h-[52px] px-4 py-5 flex items-center space-x-2 border-b-2 rounded-t-2xl"
+                    className="hidden bg-gray-50 h-[52px] px-4 py-5 md:flex items-center space-x-2 border-b-2 rounded-t-2xl"
                 >
                     <FaBookOpen
                         size={20}
@@ -52,7 +52,7 @@ const ChaptersSkalaton = () => {
                                 chapters.map(chapter =>
                                     <Link
                                         key={chapter._id}
-                                        className="w-full p-5 group cursor-pointer bg-white hover:bg-green-100 flex justify-between items-center space-x-2 border-b-[0.5px] border-gray-100 hover:rounded-2xl transition-all duration-500 animate-pulse"
+                                        className="w-full p-5 group cursor-pointer bg-white hover:bg-green-100 flex justify-between items-center space-x-6  md:space-x-2 border-b-[0.5px] border-gray-100 hover:rounded-2xl transition-all duration-500 animate-pulse"
                                     >
                                         <div
                                             className="w-1/12"

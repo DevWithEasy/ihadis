@@ -5,10 +5,10 @@ const BookDetailsModal = ({ open, setOpen, description }) => {
     
     return (
         <div
-            className="h-screen w-full fixed top-0 left-0 z-40 bg-black/50 flex justify-center items-center"
+            className="h-screen w-full fixed -top-2 left-0 z-40 bg-black/50 flex justify-center items-center"
         >
             <div
-                className="relative h-[80%] w-4/12 mx-auto space-y-5 p-6 overflow-y-auto bg-white rounded-2xl"
+                className="relative h-[80%] w-11/12 md:w-6/12 mx-auto space-y-5 p-6 overflow-y-auto bg-white rounded-2xl"
             >
                 <RxCross2
                     onClick={() => setOpen(!open)}

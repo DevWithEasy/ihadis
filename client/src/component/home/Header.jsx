@@ -10,7 +10,7 @@ import logo from "../..//assets/images/home-logo.png";
 const Header = ({ open, setOpen }) => {
     return (
         <div
-            className='w-full fixed top-0 z-20 flex justify-between items-center p-5 bg-white'
+            className='w-full fixed top-0 z-20 flex justify-between items-center p-4 bg-white'
         >
             <div
                 className='w-4/12 flex items-center space-x-2'

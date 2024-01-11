@@ -9,16 +9,19 @@ import share from '../../assets/images/share.svg';
 import { BiBook } from 'react-icons/bi';
 import { toBengaliNumber } from 'bengali-number';
 import { GiBeveledStar } from 'react-icons/gi';
+import { useState } from 'react';
+import { AiOutlineMenu } from "react-icons/ai";
+import Menu from './Menu';
 
 // eslint-disable-next-line react/prop-types
-const HadithList = ({ book, chapter, hadiths }) => {
-    console.log(hadiths)
+const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChange }) => {
+    const [menu, setMenu] = useState(false)
     return (
         <div
             className="w-full h-full flex flex-col rounded-2xl"
         >
             <div
-                className="bg-gray-50 h-[52px] mr-2 px-4 py-5 flex items-center space-x-2 border-b-2 rounded-t-2xl"
+                className="hidden bg-gray-50 h-[52px] mr-2 px-4 py-5 md:flex items-center space-x-2 border-b-2 rounded-t-2xl"
             >
                 <FaBookOpen
                     size={20}
@@ -32,7 +35,15 @@ const HadithList = ({ book, chapter, hadiths }) => {
                 className="h-[cal(100%-52px)] overflow-y-auto"
             >
                 <div
-                    className='mb-4 p-4 flex justify-between items-center bg-white rounded-b-lg'
+                    onClick={() => setMenu(!menu)}
+                    className='p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                >
+                    <AiOutlineMenu size={20} />
+                    <span className="text-xl">{book?.title}</span>
+                </div>
+
+                <div
+                    className='hidden mb-4 p-4 md:flex justify-between items-center bg-white rounded-xl md:rounded-b-lg'
                 >
                     <div className='flex items-center space-x-3'>
                         <BiBook
@@ -124,13 +135,13 @@ const HadithList = ({ book, chapter, hadiths }) => {
                                                 className='py-2 flex justify-between'
                                             >
                                                 <div
-                                                    className='w-7/12 space-x-3'
+                                                    className='w-6/12 space-x-3'
                                                 >
                                                     <span>হাদিসের মানঃ </span>
                                                     <span className='bg-[#46B891] text-white text-sm px-2 py-1 rounded-md'>{hadith?.grade}</span>
                                                 </div>
                                                 <div
-                                                    className='w-4/12 px-4 flex justify-between'
+                                                    className='w-6/12 px-4 flex justify-end space-x-2'
                                                 >
                                                     <img
                                                         src={copy}
@@ -158,6 +169,9 @@ const HadithList = ({ book, chapter, hadiths }) => {
                     }
                 </div>
             </div>
+            {menu &&
+                <Menu {...{name,menu,setMenu,state,setState,page,handleChange}}/>
+            }
         </div>
     );
 };

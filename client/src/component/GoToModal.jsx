@@ -12,7 +12,7 @@ const GoToModal = ({ open, setOpen, books }) => {
             className="h-screen w-full fixed top-0 left-0 z-40 bg-black/50 flex justify-center items-center"
         >
             <div
-                className="relative w-4/12 mx-auto space-y-5 p-6 bg-white rounded-2xl"
+                className="relative w-11/12 md:w-4/12 mx-auto space-y-5 p-6 bg-white rounded-2xl"
             >
                 <RxCross2
                     onClick={() => setOpen(!open)}

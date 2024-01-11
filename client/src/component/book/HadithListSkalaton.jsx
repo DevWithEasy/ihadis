@@ -7,7 +7,7 @@ const HadithListSkalaton = () => {
                 className="w-full h-full flex flex-col rounded-2xl"
             >
                 <div
-                    className="bg-gray-50 h-[52px] px-4 py-5 flex items-center space-x-2 border-b-2 rounded-t-2xl"
+                    className="hidden bg-gray-50 h-[52px] px-4 py-5 md:flex items-center space-x-2 border-b-2 rounded-t-2xl"
                 >
                     <FaBookOpen
                         size={20}
@@ -22,7 +22,7 @@ const HadithListSkalaton = () => {
                     className="h-[cal(100%-52px)] overflow-y-auto"
                 >
                     <div
-                        className='mb-4 p-4 flex justify-between items-center bg-white rounded-b-lg '
+                        className='mb-4 p-4 flex justify-between items-center bg-white rounded-xl md:rounded-b-lg '
                     >
                         <div className='flex items-center space-x-3 animate-pulse'>
                             <div

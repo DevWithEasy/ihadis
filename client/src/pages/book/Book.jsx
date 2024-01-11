@@ -5,7 +5,6 @@ import { BookHeader, BookList, ChapterList, ChaptersList, ChaptersSkalaton } fro
 import useHadithStore from "../../store/useStore";
 import apiUrl from "../../utils/apiUrl";
 
-// eslint-disable-next-line react/prop-types
 const Book = () => {
     const { books, addChapters } = useHadithStore()
     const { name } = useParams()
@@ -32,33 +31,39 @@ const Book = () => {
     }
     useEffect(() => {
         getChapters(book.id)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [book.id])
 
 
     return (
         <div
-            className="h-full flex justify-between space-x-6"
+            className="px-2 h-full flex justify-between md:space-x-6"
         >
-            <div className="w-[450px] h-full flex flex-col justify-between bg-white rounded-2xl">
-                <BookHeader {...{state,setState}}/>
+            <div className="hidden md:w-[450px] h-full md:flex flex-col justify-between bg-white rounded-2xl">
+                <BookHeader {...{ state, setState }} />
                 <div
                     className="p-2 h-[cal(100%-250px)] overflow-y-auto"
                 >
                     {state === 'book' ?
-                        <BookList {...{ handleChange : handleBookChange }} />
+                        <BookList {...{ handleChange: handleBookChange }} />
                         :
-                        <ChapterList {...{ name ,page : 'book', handleChange : handleBookChange }} />
+                        <ChapterList {...{ name, page: 'book', handleChange: handleBookChange }} />
                     }
 
                 </div>
             </div>
+
             {loading ?
                 <ChaptersSkalaton />
                 :
-                <ChaptersList {...{ name, book }} />
+                <ChaptersList {...{
+                    name,
+                    book, 
+                    state, 
+                    setState,
+                    page: 'book',
+                    handleChange: handleBookChange
+                }} />
             }
-
 
         </div>
     );

@@ -6,6 +6,7 @@ import ChaptersList from "./book/ChaptersList";
 import ChaptersSkalaton from "./book/ChaptersSkalaton";
 import HadithList from "./book/HadithList";
 import HadithListSkalaton from "./book/HadithListSkalaton";
+import Menu from "./book/Menu";
 import Book from "./home/Book";
 import Category from "./home/Category";
 import Footer from "./home/Footer";
@@ -16,4 +17,4 @@ import HomeSlider from "./home/HomeSlider";
 import Slider from "./home/Slider";
 
 
-export { Book,BookHeader, BookList, Category, ChapterList, ChaptersList, ChaptersSkalaton, Footer, HadithList, HadithListSkalaton, Head, Header, Hero, HeroMobile, HomeSlider, Slider };
+export { Menu,Book,BookHeader, BookList, Category, ChapterList, ChaptersList, ChaptersSkalaton, Footer, HadithList, HadithListSkalaton, Head, Header, Hero, HeroMobile, HomeSlider, Slider };

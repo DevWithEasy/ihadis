@@ -41,9 +41,9 @@ const Chapter = () => {
 
     return (
         <div
-            className="h-full flex justify-between space-x-6"
+            className="h-full flex justify-between p-2 md:p-0 md:space-x-6"
         >
-            <div className="w-[450px] h-full flex flex-col justify-between bg-white rounded-2xl">
+            <div className="hidden w-[450px] h-full md:flex flex-col justify-between bg-white rounded-2xl">
                 <BookHeader {...{ state, setState }} />
                 <div
                     className="p-2 h-[cal(100%-250px)] overflow-y-auto"
@@ -59,7 +59,17 @@ const Chapter = () => {
             {loading ?
                 <HadithListSkalaton />
                 :
-                <HadithList {...{ book, chapter, hadiths }} />
+                <HadithList {...{
+                    name,
+                    state, 
+                    setState,
+                    book, 
+                    chapter, 
+                    hadiths,
+                    page: 'chapter', 
+                    handleChange: handleChapterChange
+                }} 
+                />
             }
 
         </div>
