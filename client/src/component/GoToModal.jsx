@@ -1,24 +1,27 @@
-import image from '../assets/images/goto.svg';
+/* eslint-disable react/prop-types */
 import { BiChevronDown, BiChevronRight } from 'react-icons/bi';
-import { RxCross2 } from 'react-icons/rx'
+import image from '../assets/images/goto.svg';
 
 import { useState } from 'react';
 // eslint-disable-next-line react/prop-types
 const GoToModal = ({ open, setOpen, books }) => {
     const [view, setView] = useState(false)
     const [book, setBook] = useState(books[0])
+    const handleOpen=(e)=>{
+        if(e.target.id === 'wrapper'){
+            setOpen(false)
+        }
+    }  
+
     return (
         <div
+            id='wrapper'
+            onClick={handleOpen}
             className="h-screen w-full fixed top-0 left-0 z-40 bg-black/50 flex justify-center items-center"
         >
             <div
-                className="relative w-11/12 md:w-4/12 mx-auto space-y-5 p-6 bg-white rounded-2xl"
+                className="w-4/12 mx-auto space-y-5 p-6 bg-white rounded-2xl animate-open"
             >
-                <RxCross2
-                    onClick={() => setOpen(!open)}
-                    size={25}
-                    className='absolute top-2 right-2 cursor-pointer'
-                />
                 <h2
                     className='flex space-x-3'
                 >

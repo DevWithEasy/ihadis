@@ -6,9 +6,9 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily : {
-        'bangla' : ['Noto Serif Bengali', 'serif'],
-        'arabic' : ['Lateef', 'serif']
+      fontFamily: {
+        'bangla': ['Noto Serif Bengali', 'serif'],
+        'arabic': ['Lateef', 'serif']
       }
     }
   },

@@ -1,10 +1,10 @@
 import image from '../assets/images/home-logo.png'
 import { Link, NavLink } from 'react-router-dom'
-import { AiFillHome } from 'react-icons/ai'
-import { FaBookOpen } from 'react-icons/fa'
-import { BsBookmarkFill, BsSend } from 'react-icons/bs'
+import { AiOutlineHome } from 'react-icons/ai'
+import { FiBookOpen } from 'react-icons/fi'
+import { BsBookmark, BsSend } from 'react-icons/bs'
 import { BiDonateBlood, BiSearch } from 'react-icons/bi'
-import { PiDotsNineBold, PiMoonStarsLight, PiBooksFill } from 'react-icons/pi'
+import { PiDotsNineBold, PiMoonStarsLight, PiBooksLight } from 'react-icons/pi'
 import { useState } from 'react'
 import GoToModal from '../component/GoToModal'
 import useHadithStore from '../store/useStore'
@@ -75,7 +75,7 @@ const Layout = ({ children }) => {
                     to='/'
                     className='p-4 hover:bg-gray-100 hover:text-black rounded-xl'
                 >
-                    <AiFillHome
+                    <AiOutlineHome
                         size={28}
                     />
                 </NavLink>
@@ -83,7 +83,7 @@ const Layout = ({ children }) => {
                     to='/allhadiths'
                     className='p-4 hover:bg-gray-100 hover:text-black rounded-xl'
                 >
-                    <PiBooksFill
+                    <FiBookOpen
                         size={28}
                     />
                 </NavLink>
@@ -91,7 +91,7 @@ const Layout = ({ children }) => {
                     to='/allsubjects'
                     className='p-4 hover:bg-gray-100 hover:text-black rounded-xl'
                 >
-                    <FaBookOpen
+                    <PiBooksLight
                         size={28}
                     />
                 </NavLink>
@@ -99,7 +99,7 @@ const Layout = ({ children }) => {
                     to='/bookmark'
                     className='p-4 hover:bg-gray-100 hover:text-black rounded-xl'
                 >
-                    <BsBookmarkFill
+                    <BsBookmark
                         size={28}
                     />
                 </NavLink>
