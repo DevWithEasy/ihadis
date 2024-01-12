@@ -13,7 +13,7 @@ const Header = ({ open, setOpen ,menu,setMenu}) => {
             className='w-full fixed top-0 z-20 flex justify-between items-center p-4 bg-white'
         >
             <div
-                className='w-4/12 flex items-center space-x-2'
+                className='w-1/2 md:w-4/12 flex items-center space-x-2'
             >
                 <Link
                     to='/'
@@ -61,7 +61,7 @@ const Header = ({ open, setOpen ,menu,setMenu}) => {
                 </Link>
             </div>
             <div
-                className='w-4/12 flex justify-end items-center space-x-4'
+                className='w-1/2 md:w-4/12 flex justify-end items-center space-x-4'
             >
                 <PiMoonStarsLight
                     size={30}
@@ -70,7 +70,7 @@ const Header = ({ open, setOpen ,menu,setMenu}) => {
                 <AiOutlineMenu
                     size={30}
                     onClick={()=>setMenu(!menu)}
-                    className="bg-gray-200 p-1 rounded cursor-pointer"
+                    className="md:hidden bg-gray-200 p-1 rounded cursor-pointer"
                 />
                 <Link
                     to='/donate'

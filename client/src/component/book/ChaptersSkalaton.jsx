@@ -33,16 +33,9 @@ const ChaptersSkalaton = () => {
                             
                         </h2>
                         <div
-                            className='flex justify-between items-center space-x-2 p-3 m-4 bg-gray-50 rounded-lg'
+                            className='h-7 bg-gray-50 rounded-full'
                         >
-                            <BiSearch
-                                className='text-gray-500'
-                            />
-                            <input
-                                type='text'
-                                placeholder='Search for filter'
-                                className='bg-gray-50 w-full font-light text-sm focus:outline-none'
-                            />
+                            
                         </div>
                         
                     </div>

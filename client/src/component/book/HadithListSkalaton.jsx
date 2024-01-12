@@ -22,7 +22,7 @@ const HadithListSkalaton = () => {
                     className="h-[cal(100%-52px)] overflow-y-auto"
                 >
                     <div
-                        className='mb-4 p-4 flex justify-between items-center bg-white rounded-xl md:rounded-b-lg '
+                        className='mb-4 p-4 flex justify-between items-center bg-white md:rounded-b-lg '
                     >
                         <div className='flex items-center space-x-3 animate-pulse'>
                             <div

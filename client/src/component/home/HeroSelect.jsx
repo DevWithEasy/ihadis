@@ -1,5 +1,3 @@
-import { useState } from "react";
-import useHadithStore from "../../store/useStore";
 import { MdCheckBoxOutlineBlank,MdOutlineCheckBox  } from "react-icons/md";
 
 const HeroSelect = ({ open, setOpen,data,id,setId }) => {

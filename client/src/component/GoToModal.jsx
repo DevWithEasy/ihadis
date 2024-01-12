@@ -1,17 +1,20 @@
-/* eslint-disable react/prop-types */
 import { BiChevronDown, BiChevronRight } from 'react-icons/bi';
 import image from '../assets/images/goto.svg';
-
 import { useState } from 'react';
-// eslint-disable-next-line react/prop-types
-const GoToModal = ({ open, setOpen, books }) => {
+import { useNavigate } from 'react-router-dom'
+import useHadithStore from '../store/useStore';
+
+const GoToModal = ({ open, setOpen }) => {
+    const { books } = useHadithStore()
     const [view, setView] = useState(false)
     const [book, setBook] = useState(books[0])
-    const handleOpen=(e)=>{
-        if(e.target.id === 'wrapper'){
+    const [hadithId, setHadithId] = useState(0)
+    const navigate = useNavigate()
+    const handleOpen = (e) => {
+        if (e.target.id === 'wrapper') {
             setOpen(false)
         }
-    }  
+    }
 
     return (
         <div
@@ -67,6 +70,7 @@ const GoToModal = ({ open, setOpen, books }) => {
                 </div>
                 <input
                     type='text'
+                    onChange={(e) => setHadithId(e.target.value)}
                     placeholder='Hadith no'
                     className='w-full px-4 py-3 focus:outline-none border focus:border-[#2b9e76] rounded-lg'
                 />
@@ -74,6 +78,10 @@ const GoToModal = ({ open, setOpen, books }) => {
                     className='flex justify-end'
                 >
                     <button
+                        onClick={() => {
+                            navigate(`/${book.book_name}/hadith/${hadithId}`)
+                            setOpen(!open)
+                        }}
                         className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-lg'
                     >
                         প্রয়োগ করুন

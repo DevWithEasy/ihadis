@@ -1,9 +1,11 @@
 import Bookmark from "./Bookmark";
 import Donate from "./Donate";
+import GotoHadith from "./GotoHadith";
 import Home from "./Home";
 import Layout from "./Layout";
 import Privacy from "./Privacy";
 import Projects from "./Projects";
+import Search from "./Search";
 import Tahkik from "./Tahkik";
 import Writers from "./Writers";
 import Book from "./book/Book";
@@ -12,5 +14,5 @@ import Chapter from "./book/Chapter";
 import Subjects from "./subjects/Subjects";
 
 
-export { Book, Bookmark, Books, Chapter, Donate, Home, Layout, Privacy, Projects, Subjects, Tahkik, Writers };
+export {GotoHadith, Search,Book, Bookmark, Books, Chapter, Donate, Home, Layout, Privacy, Projects, Subjects, Tahkik, Writers };
 

@@ -55,7 +55,7 @@ const Home = () => {
                 <GoToModal {...{open,setOpen,books}}/>
             }
             {menu &&
-                <HomeMenu {...{menu,setMenu}}/>
+                <HomeMenu {...{open,setOpen,menu,setMenu}}/>
             }
         </div>
     );

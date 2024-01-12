@@ -8,7 +8,7 @@ const SearchSetting = ({ view, setView }) => {
     const [subject, setSubject] = useState(false)
     return (
         <div
-            className='absolute -left-3 top-20 z-10 w-full px-6 py-10 bg-white text-black rounded-lg '
+            className='absolute -left-3 top-20 z-10 w-full px-6 py-10 bg-white text-black rounded-lg shadow'
         >
             <div
                 className='flex justify-between gap-4'

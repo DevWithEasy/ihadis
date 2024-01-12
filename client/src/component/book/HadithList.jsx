@@ -1,24 +1,18 @@
-/* eslint-disable react/prop-types */
 import { FaBookOpen } from 'react-icons/fa';
-import bookmark from '../../assets/images/bookmark.svg';
-import copy from '../../assets/images/copy.svg';
-import direct from '../../assets/images/direct.svg';
-import hadithBook from '../../assets/images/hadith.svg';
-import report from '../../assets/images/report.svg';
-import share from '../../assets/images/share.svg';
-import { BiBook } from 'react-icons/bi';
-import { toBengaliNumber } from 'bengali-number';
-import { GiBeveledStar } from 'react-icons/gi';
 import { useState } from 'react';
 import { AiOutlineMenu } from "react-icons/ai";
 import Menu from './Menu';
+import Hadith from './Hadith';
+import HadithBook from './HadithBook';
+import HadithChapter from './HadithChapter';
+import HadithSection from './HadithSection';
 
-// eslint-disable-next-line react/prop-types
+
 const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChange }) => {
     const [menu, setMenu] = useState(false)
     return (
         <div
-            className="w-full h-full flex flex-col rounded-2xl"
+            className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl"
         >
             <div
                 className="hidden bg-gray-50 h-[52px] mr-2 px-4 py-5 md:flex items-center space-x-2 border-b-2 rounded-t-2xl"
@@ -36,44 +30,15 @@ const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChan
             >
                 <div
                     onClick={() => setMenu(!menu)}
-                    className='p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                    className='md:hidden p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
                 >
                     <AiOutlineMenu size={20} />
                     <span className="text-xl">{book?.title}</span>
                 </div>
 
-                <div
-                    className='hidden mb-4 p-4 md:flex justify-between items-center bg-white rounded-xl md:rounded-b-lg'
-                >
-                    <div className='flex items-center space-x-3'>
-                        <BiBook
-                            size={50}
-                            className='text-[#2b9e76]'
-                        />
-                        <div>
-                            <p className='text-2xl'>
-                                {book?.title}
-                            </p>
-                            <p className='text-sm'>সর্বমোট হাদিসঃ {toBengaliNumber(book?.number_of_hadis)}</p>
-                        </div>
-                    </div>
-                    <p
-                        className='text-2xl font-bold'
-                    >
-                        {book?.title_ar}
-                    </p>
-                </div>
+                <HadithBook {...{book}}/>
 
-                <div
-                    className='mb-3 p-4 flex items-center space-x-4 bg-white rounded-lg'
-                >
-                    <div
-                        className='w-10 h-10 flex justify-center items-center bg-[#2b9e76] text-white text-xl rounded-xl'
-                    >
-                        {toBengaliNumber(chapter?.chapter_id)}
-                    </div>
-                    <p className='text-xl'>{chapter?.title}</p>
-                </div>
+                <HadithChapter {...{chapter}}/>
 
 
                 <div
@@ -85,83 +50,11 @@ const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChan
                                 key={section?._id}
                                 className='space-y-2'
                             >
-                                <div
-                                    className='p-4 bg-white rounded-lg space-y-3'
-                                >
-                                    <div
-                                        className='flex items-center space-x-3'
-                                    >
-                                        <img
-                                            src={hadithBook}
-                                            className=''
-                                        />
-                                        <p>{section?.number}</p>
-                                    </div>
-                                    <p>{section?.title}</p>
-                                    <hr />
-                                    <p>{section?.preface}</p>
-                                </div>
+                                <HadithSection {...{section}}/>
+
                                 {
                                     section.hadiths.map(hadith =>
-                                        <div
-                                            key={hadith._id}
-                                            className='p-4 space-y-4 bg-white rounded-lg'
-                                        >
-                                            <p
-                                                className='flex items-center space-x-2 text-[#2b9e76] '
-                                            >
-                                                <GiBeveledStar
-                                                    size={25}
-                                                    className=''
-                                                />
-                                                <span className='font-medium text-xl'>
-                                                    {toBengaliNumber(hadith?.hadith_id)}
-                                                </span>
-                                            </p>
-                                            <p
-                                                className='text-4xl text-justify leading-[50px] font-arabic'
-                                            >
-                                                {hadith?.ar}
-                                            </p>
-                                            <p
-                                                className='text-[#2b9e76]'
-                                            >
-                                                {hadith?.narrator}
-                                            </p>
-                                            <p className='leading-8'>
-                                                {hadith?.bn}
-                                            </p>
-                                            <div
-                                                className='py-2 flex justify-between'
-                                            >
-                                                <div
-                                                    className='w-6/12 space-x-3'
-                                                >
-                                                    <span>হাদিসের মানঃ </span>
-                                                    <span className='bg-[#46B891] text-white text-sm px-2 py-1 rounded-md'>{hadith?.grade}</span>
-                                                </div>
-                                                <div
-                                                    className='w-6/12 px-4 flex justify-end space-x-2'
-                                                >
-                                                    <img
-                                                        src={copy}
-                                                    />
-                                                    <img
-                                                        src={bookmark}
-                                                    />
-                                                    <img
-                                                        src={share}
-                                                    />
-                                                    <img
-                                                        src={report}
-                                                    />
-                                                    <img
-                                                        src={direct}
-                                                    />
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                        <Hadith key={hadith._id} {...{hadith}}/>
                                     )
                                 }
                             </div>

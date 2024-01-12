@@ -7,17 +7,17 @@ const BookHeader = ({ state, setState }) => {
             className="md:h-[250px]"
         >
             <div
-                className="flex justify-between border md:border-b text-xl"
+                className="flex justify-between border md:border-none text-xl"
             >
                 <button
                     onClick={() => setState('book')}
-                    className={`w-1/2 py-3 ${state === 'book' ? 'bg-[#2b9e76] text-white' : ''} md:rounded-tl-2xl`}
+                    className={`w-1/2 py-3 ${state === 'book' ? 'bg-[#2b9e76] text-white' : 'md:border-b'} md:rounded-tl-2xl`}
                 >
                     বই
                 </button>
                 <button
                     onClick={() => setState('chapter')}
-                    className={`w-1/2 py-3 ${state === 'chapter' ? 'bg-[#2b9e76] text-white' : ''} md:rounded-tr-2xl`}
+                    className={`w-1/2 py-3 ${state === 'chapter' ? 'bg-[#2b9e76] text-white' : 'md:border-b'} md:rounded-tr-2xl`}
                 >
                     অধ্যায়
                 </button>

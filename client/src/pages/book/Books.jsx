@@ -7,7 +7,7 @@ const Books = () => {
     const { books } = useHadithStore()
     return (
         <div
-            className="w-full md:w-9/12 px-2 h-full mx-auto overflow-y-auto"
+            className="w-full md:w-9/12 px-2 pb-10 h-full mx-auto overflow-y-auto"
         >
             <div
                 className="mt-2 md:mt-0 p-4 flex flex-col md:flex-row md:justify-between items-center space-y-3 md:space-y-0 bg-white rounded-xl"

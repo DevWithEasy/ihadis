@@ -6,9 +6,10 @@ import { AiOutlineHome } from 'react-icons/ai'
 import { FiBookOpen } from 'react-icons/fi'
 import { BsSend } from 'react-icons/bs'
 import { FaCloudDownloadAlt } from "react-icons/fa";
+import {useNavigate} from 'react-router-dom'
 
-const HomeMenu = ({ menu, setMenu }) => {
-
+const HomeMenu = ({ open,setOpen,menu, setMenu }) => {
+    const navigate = useNavigate()
     return (
         <div
             className='fixed top-0 left-0 h-screen w-full bg-white z-50 overflow-y-auto'
@@ -45,34 +46,38 @@ const HomeMenu = ({ menu, setMenu }) => {
             >
                 <Link
                     to=''
+                    onClick={()=>setMenu(!menu)}
                     className='p-2 flex items-center space-x-3 bg-[#2b9e76] text-white hover:bg-gray-50 hover:text-black rounded-xl'
                 >
                     <AiOutlineHome size={20}/>
                     <span className='text-lg'>হোম</span>
                 </Link>
-                <Link
-                    to=''
-                    className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
+                <button
+                    onClick={()=>{
+                        setMenu(!menu),
+                        setOpen(!open)
+                    }}
+                    className='w-full p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
                 >
                     <BsSend size={20} className='text-[#2b9e76]'/>
                     <span className='text-lg'>হাদিসে যান</span>
-                </Link>
+                </button>
                 <Link
-                    to=''
+                    to='/allhadiths'
                     className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
                 >
                     <FiBookOpen size={20} className='text-[#2b9e76]'/>
                     <span className='text-lg'>হাদিস গ্রন্থসমূহ</span>
                 </Link>
                 <Link
-                    to=''
+                    to='/donate'
                     className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
                 >
                     <BiDonateBlood size={20} className='text-[#2b9e76]'/>
                     <span className='text-lg'>সাপোর্ট করুন</span>
                 </Link>
                 <Link
-                    to=''
+                    to='/projects'
                     className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
                 >
                     <FaCloudDownloadAlt size={20} className='text-[#2b9e76]'/>

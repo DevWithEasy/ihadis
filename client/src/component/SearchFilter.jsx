@@ -1,17 +1,19 @@
-import { useEffect, useState } from 'react';
-import { BiChevronDown, BiChevronRight } from 'react-icons/bi';
-import useHadithStore from '../../store/useStore';
-import HeroSelect from '../home/HeroSelect';
-import axios from 'axios';
-import apiUrl from '../../utils/apiUrl';
+import React, { useEffect, useState } from 'react'
+import { CiFilter } from "react-icons/ci"
+import useHadithStore from '../store/useStore'
+import apiUrl from '../utils/apiUrl'
+import axios from 'axios'
+import { BiChevronDown, BiChevronRight } from 'react-icons/bi'
+import HeroSelect from './home/HeroSelect'
 
-const BookSearchModal = ({ view, setView }) => {
-    const {books} = useHadithStore()
+const SearchFilter = ({ q,book_id,chap_id }) => {
+    const { books } = useHadithStore()
     const [book, setBook] = useState(false)
     const [subject, setSubject] = useState(false)
-    const [bookId, setBookId] = useState()
-    const [chapterId, setChapterId] = useState()
-    const [chapters,setChapters] = useState([])
+    const [query, setQuery] = useState(q)
+    const [bookId, setBookId] = useState(book_id)
+    const [chapterId, setChapterId] = useState(chap_id)
+    const [chapters, setChapters] = useState([])
     const getChapters = async (id) => {
         try {
             const res = await axios.get(`${apiUrl}/api/book/chapter/${id}`)
@@ -25,22 +27,17 @@ const BookSearchModal = ({ view, setView }) => {
     useEffect(() => {
         bookId && getChapters(bookId)
     }, [bookId])
-
-
     return (
-        <div
-            className='fixed left-0 top-0 h-screen w-full  pt-10 bg-black/50 z-10'
-        >
+        <div className="hidden md:block md:w-[450px] h-72 p-4 space-y-2 bg-white rounded-2xl">
             <div
-                className='w-11/12 p-4 mx-auto bg-white rounded-xl'
+                className='py-2 flex items-center space-x-2 text-[#2b9e76] font-semibold'
             >
+                <CiFilter size={25} />
+                <span>ফিল্টার</span>
+            </div>
             <div
-                className='space-y-5'
+                className='space-y-2'
             >
-                <input
-                    placeholder='Search hadith'
-                    className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none'
-                />
                 <div
                     className='w-full space-y-2'
                 >
@@ -65,9 +62,9 @@ const BookSearchModal = ({ view, setView }) => {
                             <HeroSelect {...{
                                 open: book,
                                 setOpen: setBook,
-                                data : books,
-                                id : bookId,
-                                setId : setBookId
+                                data: books,
+                                id: bookId,
+                                setId: setBookId
                             }} />
                         }
                     </div>
@@ -96,63 +93,30 @@ const BookSearchModal = ({ view, setView }) => {
                             <HeroSelect {...{
                                 open: subject,
                                 setOpen: setSubject,
-                                data : chapters,
-                                id : chapterId,
-                                setId : setChapterId
+                                data: chapters,
+                                id: chapterId,
+                                setId: setChapterId
                             }} />
                         }
                     </div>
                 </div>
             </div>
             <div
-                className='py-2 flex space-x-4'
-            >
-                <div
-                    className='p-2 flex items-center space-x-3 '
-                >
-                    <input
-                        id='something'
-                        type='checkbox'
-                    />
-                    <label
-                        htmlFor='something'
-                    >
-                        আংশিক মিল
-                    </label>
-                </div>
-                <div
-                    className='p-2 flex items-center space-x-3 '
-                >
-                    <input
-                        id='full'
-                        type='checkbox'
-                    />
-                    <label
-                        htmlFor='full'
-                    >
-                        হুবুহু মিল
-                    </label>
-                </div>
-            </div>
-            <div
-                className='flex justify-end space-x-4'
+                className='flex justify-end space-x-3 p-2 text-sm'
             >
                 <button
-                    onClick={() => setView(!view)}
-                    className='px-4 py-2 bg-gray-100 text-sm rounded-md'
+                    className='px-4 py-1 bg-red-400 text-white rounded-md'
                 >
-                    বাতিল
+                    ফিল্টার ক্লিয়ার
                 </button>
                 <button
-                    onClick={() => setView(!view)}
-                    className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-md'
+                    className='px-4 py-1 bg-[#2b9e76] text-white rounded-md'
                 >
-                    সার্চ করুন
+                    প্রয়োগ করুন
                 </button>
-            </div>
             </div>
         </div>
     );
 };
 
-export default BookSearchModal;
+export default SearchFilter;

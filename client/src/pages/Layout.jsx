@@ -11,10 +11,7 @@ import useHadithStore from '../store/useStore'
 import MenuPopup from '../component/MenuPopup'
 import NavigationFooter from '../component/NavigationFooter'
 import BookSearchModal from '../component/book/BookSearchModal'
-// import {PiBooksFill} from 'react-icons/li'
 
-
-// eslint-disable-next-line react/prop-types
 const Layout = ({ children }) => {
     const { books } = useHadithStore()
     const [open, setOpen] = useState(false)
