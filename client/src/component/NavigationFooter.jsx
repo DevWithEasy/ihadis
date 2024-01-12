@@ -27,7 +27,7 @@ const NavigationFooter = ({open, setOpen}) => {
                 />
             </NavLink>
             <NavLink
-                to='/allsubjects'
+                to='/subjectwise'
                 className='p-2 hover:bg-gray-100 hover:text-black rounded-xl'
             >
                 <FaBookOpen

@@ -4,6 +4,7 @@ import {persist,devtools} from 'zustand/middleware'
 const hadithStore = (set)=>({
     books : [],
     categories : [],
+    categoriesSub : [],
     chapters : [],
     addBookSub : (data)=>{
         set(()=>({
@@ -15,7 +16,13 @@ const hadithStore = (set)=>({
         set(()=>({
             chapters : data,
         }))
+    },
+    addCategoriesSub : (data)=>{
+        set(()=>({
+            categoriesSub : data,
+        }))
     }
+
 })
 
 const useHadithStore = create(

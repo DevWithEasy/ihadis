@@ -34,15 +34,13 @@ const Books = () => {
                 className="grid md:grid-cols-2 gap-2 md:gap-4 py-5"
             >
                 {books &&
-                    // eslint-disable-next-line react/prop-types
                     books.map(book =>
                         <Link to={`/${book?.book_name}`}
-                            // onClick={() => navigate()}
                             key={book._id}
-                            className="w-full p-5 group cursor-pointer bg-white flex justify-between items-center rounded-2xl transition-all duration-500"
+                            className="w-full p-5 group cursor-pointer bg-white flex justify-between items-center space-x-2 rounded-2xl transition-all duration-500"
                         >
                             <div
-                                className="w-2/12"
+                                className="w-16"
                             >
                                 <div
                                     className="flex justify-center items-center bg-gray-200 group-hover:bg-[#2b9e76] group-hover:text-white text-gray-400 w-12 h-12 rounded-full"
@@ -51,7 +49,7 @@ const Books = () => {
                                 </div>
                             </div>
                             <div
-                                className="w-10/12"
+                                className="w-full"
                             >
                                 <p
                                     className="group-hover:text-[#2b9e76] font-medium"

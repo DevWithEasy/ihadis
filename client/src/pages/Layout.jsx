@@ -85,7 +85,7 @@ const Layout = ({ children }) => {
                     />
                 </NavLink>
                 <NavLink
-                    to='/allsubjects'
+                    to='/hadith/subject/category'
                     className='p-4 hover:bg-gray-100 hover:text-black rounded-xl'
                 >
                     <PiBooksLight
