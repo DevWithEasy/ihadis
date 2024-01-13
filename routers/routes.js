@@ -1,5 +1,5 @@
 const bookRouter = require('./bookRouter')
-const sunjectRouter = require('./subjectRouter')
+const subjectRouter = require('./subjectRouter')
 const routers = [
     {
         path : '/api/book',
@@ -7,7 +7,7 @@ const routers = [
     },
     {
         path : '/api/subject',
-        handler : sunjectRouter
+        handler : subjectRouter
     },
     // {
     //     path : '/',

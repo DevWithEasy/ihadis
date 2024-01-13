@@ -26,14 +26,14 @@ const HeroMobile = () => {
                     আল হাদিস অ্যাপের মাধ্যমে, হাদিস পড়া, বুকমার্ক, অনলাইন সিংকিং সহ আরও অনেক কিছু সহজেই পারবেন। এখনই আমাদের অ্যাপটি ডাউনলোড করুন!
                 </p>
                 <div
-                    className='flex md:flex-row flex-col space-y-2 md:space-y-0 md:space-x-5'
+                    className='flex md:flex-row flex-col space-y-2 md:space-y-0 md:space-x-5 '
                 >
                     <div
-                        className='px-4 py-2  flex justify-between items-center space-x-3 bg-[#d6f6ea] rounded-lg'
+                        className='px-4 py-2  flex justify-between items-center space-x-3 bg-[#d6f6ea]  rounded-lg'
                     >
                         <BiLogoPlayStore size={30} />
                         <div
-                            className='w-full text-sm'
+                            className='w-full text-sm text-gray-500'
                         >
                             <p>GET IT ON</p>
                             <p>Google play</p>
@@ -44,7 +44,7 @@ const HeroMobile = () => {
                     >
                         <BsApple size={30} />
                         <div
-                            className='w-full text-sm'
+                            className='w-full text-sm text-gray-500'
                         >
                             <p>Download on the</p>
                             <p>App Store</p>

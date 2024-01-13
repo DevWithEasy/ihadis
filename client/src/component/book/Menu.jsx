@@ -10,7 +10,7 @@ const Menu = ({name,menu,setMenu,state,setState,page,handleChange}) => {
             className='fixed top-0 left-0 h-screen w-full bg-white z-50 overflow-y-auto'
         >
             <div
-                className='sticky top-0                              bg-white'
+                className='sticky top-0 bg-white'
             >
             <div
                 className='p-4 flex justify-between items-center text-xl'

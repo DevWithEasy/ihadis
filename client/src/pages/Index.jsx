@@ -11,8 +11,10 @@ import Writers from "./Writers";
 import Book from "./book/Book";
 import Books from "./book/Books";
 import Chapter from "./book/Chapter";
+import CategoriesHadith from "./subjects/CategoriesHadith";
 import Subject from "./subjects/Subject";
 import Subjects from "./subjects/Subjects";
 
-export { Book, Bookmark, Books, Chapter, Donate, GotoHadith, Home, Layout, Privacy, Projects, Search, Subject, Subjects, Tahkik, Writers };
+
+export {CategoriesHadith, Book, Bookmark, Books, Chapter, Donate, GotoHadith, Home, Layout, Privacy, Projects, Search, Subject, Subjects, Tahkik, Writers };
 

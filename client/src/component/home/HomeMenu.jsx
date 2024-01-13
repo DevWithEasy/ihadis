@@ -21,7 +21,7 @@ const HomeMenu = ({ open,setOpen,menu, setMenu }) => {
                     className='p-4 flex justify-between items-center text-xl'
                 >
                     <div
-                        className='w-4/12 flex items-center space-x-2'
+                        className='w-1/2 flex items-center space-x-2'
                     >
                         <Link
                             to='/'

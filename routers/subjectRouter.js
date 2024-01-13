@@ -1,5 +1,7 @@
+const { getSubCategories } = require('../controllers/subjectControllers')
+
 const router = require('express').Router()
 
-router.get('/:id')
+router.get('/:id',getSubCategories)
     .get('/',)
 module.exports = router

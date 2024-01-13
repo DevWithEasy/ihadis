@@ -9,7 +9,7 @@ import SubCatList from '../../component/subject/SubCatList';
 import { ChaptersSkalaton } from '../../component/Index';
 import SubCatsList from '../../component/subject/SubCatsList';
 
-const Subject = () => {
+const CategoiesHadith = () => {
     const { categories, addCategoriesSub, categoriesSub } = useHadithStore()
     const { id } = useParams()
     const [state, setState] = useState('book')
@@ -62,4 +62,4 @@ const Subject = () => {
     );
 };
 
-export default Subject;
+export default CategoiesHadith;

@@ -11,7 +11,7 @@ const Hero = () => {
     return (
         <div
             // style={{backgroundImage : `url(${image})`}}
-            className='w-full pt-28 md:pt-52 pb-10 md:pb-24 flex flex-col justify-center items-center space-y-3 md:space-y-10 bg-[#2b9e76] text-white bg-no-repeat bg-center'
+            className='w-full pt-28 md:pt-52 pb-10 md:pb-24 flex flex-col justify-center items-center space-y-6 md:space-y-10 bg-[#2b9e76] text-white bg-no-repeat bg-center'
         >
             <h1
                 className='text-2xl md:text-5xl font-medium'
