@@ -1,26 +1,29 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
-import useHadithStore from '../../store/useStore';
-import axios from 'axios'
-import apiUrl from '../../utils/apiUrl';
+import { useParams } from 'react-router-dom';
+import { HadithListSkalaton } from '../../component/Index';
+import CatHadithList from '../../component/subject/CatHadithList';
 import CatHeader from '../../component/subject/CatHeader';
 import CatList from '../../component/subject/CatList';
 import SubCatList from '../../component/subject/SubCatList';
-import { ChaptersSkalaton } from '../../component/Index';
-import SubCatsList from '../../component/subject/SubCatsList';
+import useHadithStore from '../../store/useStore';
+import apiUrl from '../../utils/apiUrl';
 
 const CategoiesHadith = () => {
-    const { categories, addCategoriesSub, categoriesSub } = useHadithStore()
-    const { id } = useParams()
-    const [state, setState] = useState('book')
-    const [category, setCategory] = useState(categories.find(category => category.id == id))
+    const { categories, categoriesSub } = useHadithStore()
+    const { catId, id } = useParams()
+    const [state, setState] = useState('chapter')
+    const [category] = useState(categories.find(category => category.id == catId))
+    const [categorySub, setCategorySub] = useState(categoriesSub.find(categorySub => categorySub.id == id))
+    const [hadiths, setHadiths] = useState([])
     const [loading, setLoading] = useState(false)
-    const getChapters = async (id) => {
+
+    const getHadiths = async (catId, subCatId) => {
         setLoading(true)
         try {
-            const res = await axios.get(`${apiUrl}/api/subject/${id}`)
+            const res = await axios.get(`${apiUrl}/api/subject/${catId}/${subCatId}`)
             if (res.data.status === 200) {
-                addCategoriesSub(res.data.data)
+                setHadiths(res.data.data)
                 setLoading(false)
             }
         } catch (error) {
@@ -29,14 +32,16 @@ const CategoiesHadith = () => {
         }
     }
 
-    const handleBookChange = (id) => {
-        const findCategory = categories.find(category => category.id == id)
-        setCategory(findCategory)
+    const handleChapterChange = (id) => {
+        const findcategorySub = categoriesSub.find(categorySub => categorySub.id == id)
+        setCategorySub(findcategorySub)
     }
-    useEffect(() => {
-        getChapters(category.id)
-    }, [category.id])
 
+    useEffect(() => {
+        categorySub?.id && getHadiths(category?.id, categorySub?.id)
+    }, [categorySub?.id])
+    
+    
     return (
         <div
             className="px-2 h-full flex justify-between md:space-x-6"
@@ -47,16 +52,18 @@ const CategoiesHadith = () => {
                     className="p-2 h-[cal(100%-250px)] overflow-y-auto"
                 >
                     {state === 'book' ?
-                        <CatList {...{ handleChange: handleBookChange }} />
+                        <CatList {...{ handleChange: handleChapterChange }} />
                         :
-                        <SubCatList {...{ id, page: 'book', handleChange: handleBookChange }} />
+                        <SubCatList {...{ id, page: 'chapter', handleChange: handleChapterChange }} />
                     }
                 </div>
             </div>
             {loading ?
-                <ChaptersSkalaton/>
+                <HadithListSkalaton/>
                 :
-                <SubCatsList {...{id,category, state, setState,}}/>
+                <CatHadithList {...{
+                    id,category,categorySub,state,setState, hadiths,handleChange :handleChapterChange
+                }}/>
             }
         </div>
     );

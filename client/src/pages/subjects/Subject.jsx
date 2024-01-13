@@ -10,7 +10,7 @@ import { ChaptersSkalaton } from '../../component/Index';
 import SubCatsList from '../../component/subject/SubCatsList';
 
 const Subject = () => {
-    const { categories, addCategoriesSub, categoriesSub } = useHadithStore()
+    const { categories, addCategoriesSub } = useHadithStore()
     const { id } = useParams()
     const [state, setState] = useState('book')
     const [category, setCategory] = useState(categories.find(category => category.id == id))

@@ -4,14 +4,13 @@ import { BiSearch } from 'react-icons/bi';
 import { FaBookOpen } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useHadithStore from '../../store/useStore';
-import BookDetailsModal from '../BookDetailsModal';
 import { AiOutlineMenu } from "react-icons/ai";
 
 const SubCatsList = ({ id,book,category, state, setState, page,handleChange }) => {
     const { categoriesSub } = useHadithStore()
     const [open, setOpen] = useState(false)
     const [menu, setMenu] = useState(false)
-    console.log(category)
+    
     return (
         <div
             className="w-full h-full pb-16 md:pb-0  flex flex-col md:bg-white md:rounded-2xl"

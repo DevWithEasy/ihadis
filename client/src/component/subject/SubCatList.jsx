@@ -4,12 +4,12 @@ import useHadithStore from '../../store/useStore';
 
 const SubCatList = ({ id, page, handleChange }) => {
     const { categoriesSub } = useHadithStore()
-
     const handleChangeChapter = (id) => {
         if (page == 'chapter') {
             handleChange(id)
         }
     }
+    
     return (
         <div
             className="space-y-1"

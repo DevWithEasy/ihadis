@@ -1,7 +1,8 @@
-const { getSubCategories } = require('../controllers/subjectControllers')
+const { getSubCategories, getSubCategoriesHadith } = require('../controllers/subjectControllers')
 
 const router = require('express').Router()
 
 router.get('/:id',getSubCategories)
-    .get('/',)
+    .get('/:catId/:subCatId',getSubCategoriesHadith)
+    
 module.exports = router

@@ -32,7 +32,7 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
             >
                 <div
                     onClick={()=>setMenu(!menu)}
-                    className='p-4 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                    className='md:hidden p-4 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
                 >
                     <AiOutlineMenu size={20}/>
                     <span className="text-xl">{book?.title}</span>

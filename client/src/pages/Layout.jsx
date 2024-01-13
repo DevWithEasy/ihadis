@@ -11,12 +11,31 @@ import useHadithStore from '../store/useStore'
 import MenuPopup from '../component/MenuPopup'
 import NavigationFooter from '../component/NavigationFooter'
 import BookSearchModal from '../component/book/BookSearchModal'
+import { book, bookmark, home, subject } from '../utils/images'
 
 const Layout = ({ children }) => {
     const { books } = useHadithStore()
     const [open, setOpen] = useState(false)
     const [menu, setMenu] = useState(false)
     const [view, setView] = useState(false)
+    const links = [
+        {
+            path : '/',
+            icon : home
+        },
+        {
+            path : '/allhadiths',
+            icon : book
+        },
+        {
+            path : '/hadith/subject/category',
+            icon : subject
+        },
+        {
+            path : '/bookmark',
+            icon : bookmark
+        },
+    ]
 
     return (
         <div
@@ -57,7 +76,7 @@ const Layout = ({ children }) => {
                     <BiSearch
                         size={40}
                         onClick={()=>setView(!view)}
-                        className="bg-gray-200 p-2 rounded cursor-pointer"
+                        className="md:hidden bg-gray-200 p-2 rounded cursor-pointer"
                     />
                     <PiMoonStarsLight
                         size={40}

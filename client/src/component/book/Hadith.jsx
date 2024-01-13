@@ -24,7 +24,7 @@ const Hadith = ({ hadith }) => {
                     className=''
                 />
                 <span className='font-medium text-xl'>
-                    {toBengaliNumber(hadith?.hadith_id)}
+                    {hadith?.book && `${hadith?.book?.title}: `} {toBengaliNumber(hadith?.hadith_id)}
                 </span>
                 </div>
                 <span

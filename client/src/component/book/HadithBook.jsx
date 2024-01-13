@@ -14,7 +14,7 @@ const HadithBook = ({ book }) => {
                 />
                 <div>
                     <p className='text-2xl'>
-                        {book?.title}
+                        {book?.title ? book?.title : book?.bn}
                     </p>
                     <p className='text-sm'>সর্বমোট হাদিসঃ {toBengaliNumber(book?.number_of_hadis)}</p>
                 </div>
@@ -22,7 +22,7 @@ const HadithBook = ({ book }) => {
             <p
                 className='text-2xl font-arabic font-bold'
             >
-                {book?.title_ar}
+                {book?.title_ar && book?.title_ar}
             </p>
         </div>
     );

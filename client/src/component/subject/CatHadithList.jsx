@@ -1,15 +1,15 @@
 import { FaBookOpen } from 'react-icons/fa';
 import { useState } from 'react';
 import { AiOutlineMenu } from "react-icons/ai";
-import Menu from './Menu';
-import Hadith from './Hadith';
-import HadithBook from './HadithBook';
-import HadithChapter from './HadithChapter';
-import HadithSection from './HadithSection';
+import HadithBook from '../book/HadithBook';
+import Hadith from '../book/Hadith';
+import { Menu } from '../Index';
+import HadithChapter from '../book/HadithChapter';
 
 
-const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChange }) => {
+const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, page, handleChange }) => {
     const [menu, setMenu] = useState(false)
+    
     return (
         <div
             className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl"
@@ -21,9 +21,11 @@ const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChan
                     size={20}
                 />
                 <span>&gt;</span>
-                <span className="text-sm">{book?.book_name}</span>
+                <span className="text-sm">{category?.bn}</span>
                 <span>&gt;</span>
-                <span className="text-sm">{chapter?.id}</span>
+                <span className="text-sm">{category?.id}</span>
+                <span>&gt;</span>
+                <span className="text-sm">{categorySub?.id}</span>
             </div>
             <div
                 className="h-[cal(100%-52px)] overflow-y-auto"
@@ -33,40 +35,28 @@ const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChan
                     className='md:hidden p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
                 >
                     <AiOutlineMenu size={20} />
-                    <span className="text-xl">{book?.title}</span>
+                    <span className="text-xl">{category?.bn}</span>
                 </div>
 
-                <HadithBook {...{book}}/>
+                <HadithBook {...{ book: category }} />
 
-                <HadithChapter {...{chapter}}/>
-
+                <HadithChapter {...{ chapter: categorySub }} />
 
                 <div
                     className='space-y-4'
                 >
                     {hadiths &&
-                        hadiths.map(section =>
-                            <div
-                                key={section?._id}
-                                className='space-y-2'
-                            >
-                                <HadithSection {...{section}}/>
-
-                                {
-                                    section.hadiths.map(hadith =>
-                                        <Hadith key={hadith._id} {...{hadith}}/>
-                                    )
-                                }
-                            </div>
+                        hadiths.map(hadith =>
+                            <Hadith key={hadith._id} {...{ hadith }} />
                         )
                     }
                 </div>
             </div>
             {menu &&
-                <Menu {...{name,menu,setMenu,state,setState,page,handleChange}}/>
+                <Menu {...{ id, menu, setMenu, state, setState, page, handleChange }} />
             }
         </div>
     );
 };
 
-export default HadithList;
+export default CatHadithList;

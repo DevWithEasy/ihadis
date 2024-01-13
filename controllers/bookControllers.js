@@ -4,9 +4,6 @@ const Chapter = require("../models/Chapter")
 const Hadith = require("../models/Hadith")
 const HadithForCategory = require("../models/HadithForCategory")
 const Section = require("../models/Section")
-const SubCategory = require("../models/SubCategory")
-const Validity = require("../models/Validity")
-const Writer = require("../models/Writer")
 
 exports.getHomeData = async(req, res, next) => {
     try {

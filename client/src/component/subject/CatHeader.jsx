@@ -4,7 +4,7 @@ import { BiSearch } from 'react-icons/bi';
 const CatHeader = ({ state, setState }) => {
     return (
         <div
-            className="md:h-[250px]"
+            className="md:min-h-[120px]"
         >
             <div
                 className="flex justify-between border md:border-none text-xl"
