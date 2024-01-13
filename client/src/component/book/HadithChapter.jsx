@@ -14,7 +14,7 @@ const HadithChapter = ({ chapter }) => {
                     toBengaliNumber(
                         chapter?.chapter_id ?
                             chapter?.chapter_id :
-                            chapter?.cat_id
+                            chapter?.id
                     )
                 }
             </div>

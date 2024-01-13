@@ -4,14 +4,17 @@ import useHadithStore from '../../store/useStore';
 import HeroSelect from '../home/HeroSelect';
 import axios from 'axios';
 import apiUrl from '../../utils/apiUrl';
+import { useNavigate } from 'react-router-dom'
 
 const BookSearchModal = ({ view, setView }) => {
-    const {books} = useHadithStore()
+    const navigate = useNavigate()
+    const { books } = useHadithStore()
     const [book, setBook] = useState(false)
     const [subject, setSubject] = useState(false)
+    const [query, setQuery] = useState('')
     const [bookId, setBookId] = useState()
     const [chapterId, setChapterId] = useState()
-    const [chapters,setChapters] = useState([])
+    const [chapters, setChapters] = useState([])
     const getChapters = async (id) => {
         try {
             const res = await axios.get(`${apiUrl}/api/book/chapter/${id}`)
@@ -34,122 +37,127 @@ const BookSearchModal = ({ view, setView }) => {
             <div
                 className='w-11/12 p-4 mx-auto bg-white rounded-xl'
             >
-            <div
-                className='space-y-5'
-            >
-                <input
-                    placeholder='Search hadith'
-                    className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none'
-                />
                 <div
-                    className='w-full space-y-2'
+                    className='space-y-5'
                 >
-                    <label
-                        className='block'
-                    >
-                        হাদিসের বই সিলেক্ট করুন
-                    </label>
+                    <input
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder='Search hadith'
+                        className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none'
+                    />
                     <div
-                        className='relative p-2 flex justify-between items-center border rounded-lg'
+                        className='w-full space-y-2'
                     >
-                        <button
-                            onClick={() => setBook(!book)}
-                            className='w-full flex justify-between items-center'
+                        <label
+                            className='block'
                         >
-                            <span>
-                                সকল বই
-                            </span>
-                            {!subject ? <BiChevronRight /> : <BiChevronDown />}
-                        </button>
-                        {book &&
-                            <HeroSelect {...{
-                                open: book,
-                                setOpen: setBook,
-                                data : books,
-                                id : bookId,
-                                setId : setBookId
-                            }} />
-                        }
+                            হাদিসের বই সিলেক্ট করুন
+                        </label>
+                        <div
+                            className='relative p-2 flex justify-between items-center border rounded-lg'
+                        >
+                            <button
+                                onClick={() => setBook(!book)}
+                                className='w-full flex justify-between items-center'
+                            >
+                                <span>
+                                    সকল বই
+                                </span>
+                                {!subject ? <BiChevronRight /> : <BiChevronDown />}
+                            </button>
+                            {book &&
+                                <HeroSelect {...{
+                                    open: book,
+                                    setOpen: setBook,
+                                    data: books,
+                                    id: bookId,
+                                    setId: setBookId
+                                }} />
+                            }
+                        </div>
+                    </div>
+                    <div
+                        className='w-full space-y-2'
+                    >
+                        <label
+                            className='block'
+                        >
+                            অধ্যায় সিলেক্ট করুন
+                        </label>
+                        <div
+                            className='relative p-2  border rounded-lg'
+                        >
+                            <button
+                                onClick={() => setSubject(!subject)}
+                                className='w-full flex justify-between items-center'
+                            >
+                                <span>
+                                    সকল অধ্যায়
+                                </span>
+                                {!subject ? <BiChevronRight /> : <BiChevronDown />}
+                            </button>
+                            {subject &&
+                                <HeroSelect {...{
+                                    open: subject,
+                                    setOpen: setSubject,
+                                    data: chapters,
+                                    id: chapterId,
+                                    setId: setChapterId
+                                }} />
+                            }
+                        </div>
                     </div>
                 </div>
                 <div
-                    className='w-full space-y-2'
+                    className='py-2 flex space-x-4'
                 >
-                    <label
-                        className='block'
-                    >
-                        অধ্যায় সিলেক্ট করুন
-                    </label>
                     <div
-                        className='relative p-2  border rounded-lg'
+                        className='p-2 flex items-center space-x-3 '
                     >
-                        <button
-                            onClick={() => setSubject(!subject)}
-                            className='w-full flex justify-between items-center'
+                        <input
+                            id='something'
+                            type='checkbox'
+                        />
+                        <label
+                            htmlFor='something'
                         >
-                            <span>
-                                সকল অধ্যায়
-                            </span>
-                            {!subject ? <BiChevronRight /> : <BiChevronDown />}
-                        </button>
-                        {subject &&
-                            <HeroSelect {...{
-                                open: subject,
-                                setOpen: setSubject,
-                                data : chapters,
-                                id : chapterId,
-                                setId : setChapterId
-                            }} />
-                        }
+                            আংশিক মিল
+                        </label>
+                    </div>
+                    <div
+                        className='p-2 flex items-center space-x-3 '
+                    >
+                        <input
+                            id='full'
+                            type='checkbox'
+                        />
+                        <label
+                            htmlFor='full'
+                        >
+                            হুবুহু মিল
+                        </label>
                     </div>
                 </div>
-            </div>
-            <div
-                className='py-2 flex space-x-4'
-            >
                 <div
-                    className='p-2 flex items-center space-x-3 '
+                    className='flex justify-end space-x-4'
                 >
-                    <input
-                        id='something'
-                        type='checkbox'
-                    />
-                    <label
-                        htmlFor='something'
+                    <button
+                        onClick={() => setView(!view)}
+                        className='px-4 py-2 bg-gray-100 text-sm rounded-md'
                     >
-                        আংশিক মিল
-                    </label>
-                </div>
-                <div
-                    className='p-2 flex items-center space-x-3 '
-                >
-                    <input
-                        id='full'
-                        type='checkbox'
-                    />
-                    <label
-                        htmlFor='full'
+                        বাতিল
+                    </button>
+                    <button
+                        onClick={() => {
+                            navigate(`/search/?q=${query}&book_id=${bookId}&chap_id=${chapterId}`)
+                            setView(!view)
+                        }}
+                        className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-md'
                     >
-                        হুবুহু মিল
-                    </label>
+                        সার্চ করুন
+                    </button>
                 </div>
-            </div>
-            <div
-                className='flex justify-end space-x-4'
-            >
-                <button
-                    onClick={() => setView(!view)}
-                    className='px-4 py-2 bg-gray-100 text-sm rounded-md'
-                >
-                    বাতিল
-                </button>
-                <button
-                    onClick={() => setView(!view)}
-                    className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-md'
-                >
-                    সার্চ করুন
-                </button>
-            </div>
             </div>
         </div>
     );

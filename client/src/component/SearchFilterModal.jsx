@@ -7,7 +7,7 @@ const SearchFilterModal = ({q,book_id,chap_id,view,setView}) => {
             className='fixed left-0 top-0 h-screen w-full bg-black/50 z-10 bg-white'
         >
             <div
-                className='w-11/12 p-4 mx-auto bg-white rounded-xl'
+                className='w-11/12 space-y-5 p-4 mx-auto bg-white rounded-xl'
             >
                 <button
                 onClick={()=>setView(!view)}

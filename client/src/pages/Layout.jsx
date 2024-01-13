@@ -147,7 +147,7 @@ const Layout = ({ children }) => {
             </div>
             <NavigationFooter {...{ open, setOpen }} />
             <div
-                className="relative w-full bg-gray-100 md:rounded-tl-3xl pt-[81px] md:mt-[80px] md:p-4"
+                className="relative w-full bg-gray-100 md:rounded-tl-3xl pt-[65px] md:mt-[80px] md:p-4"
             >
                 {children}
 

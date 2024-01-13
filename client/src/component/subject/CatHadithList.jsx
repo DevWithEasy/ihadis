@@ -5,6 +5,7 @@ import HadithBook from '../book/HadithBook';
 import Hadith from '../book/Hadith';
 import { Menu } from '../Index';
 import HadithChapter from '../book/HadithChapter';
+import SubMenu from './SubMenu';
 
 
 const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, page, handleChange }) => {
@@ -32,7 +33,7 @@ const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, pa
             >
                 <div
                     onClick={() => setMenu(!menu)}
-                    className='md:hidden p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                    className='md:hidden mt-4 p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
                 >
                     <AiOutlineMenu size={20} />
                     <span className="text-xl">{category?.bn}</span>
@@ -53,7 +54,7 @@ const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, pa
                 </div>
             </div>
             {menu &&
-                <Menu {...{ id, menu, setMenu, state, setState, page, handleChange }} />
+                <SubMenu {...{ id, menu, setMenu, state, setState, page, handleChange }} />
             }
         </div>
     );

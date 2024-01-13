@@ -5,8 +5,10 @@ import apiUrl from '../utils/apiUrl'
 import axios from 'axios'
 import { BiChevronDown, BiChevronRight } from 'react-icons/bi'
 import HeroSelect from './home/HeroSelect'
+import { useNavigate } from 'react-router-dom'
 
 const SearchFilter = ({ q,book_id,chap_id }) => {
+    const navigate = useNavigate()
     const { books } = useHadithStore()
     const [book, setBook] = useState(false)
     const [subject, setSubject] = useState(false)
@@ -28,7 +30,7 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
         bookId && getChapters(bookId)
     }, [bookId])
     return (
-        <div className="hidden md:block md:w-[450px] h-72 p-4 space-y-2 bg-white rounded-2xl">
+        <div className="md:w-[350px] h-84 p-4 space-y-3 bg-white rounded-2xl border md:border-none">
             <div
                 className='py-2 flex items-center space-x-2 text-[#2b9e76] font-semibold'
             >
@@ -36,8 +38,14 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
                 <span>ফিল্টার</span>
             </div>
             <div
-                className='space-y-2'
+                className='space-y-3'
             >
+                <input
+                    value={query}
+                    onChange={(e)=>setQuery(e.target.value)}
+                    placeholder='Search hadith'
+                    className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none'
+                />
                 <div
                     className='w-full space-y-2'
                 >
@@ -105,12 +113,13 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
                 className='flex justify-end space-x-3 p-2 text-sm'
             >
                 <button
-                    className='px-4 py-1 bg-red-400 text-white rounded-md'
+                    className='px-4 py-2 bg-red-400 text-white rounded-md'
                 >
                     ফিল্টার ক্লিয়ার
                 </button>
                 <button
-                    className='px-4 py-1 bg-[#2b9e76] text-white rounded-md'
+                    onClick={()=>navigate(`/search/?q=${query}&book_id=${bookId}&chap_id=${chapterId}`)}
+                    className='px-4 py-2 bg-[#2b9e76] text-white rounded-md'
                 >
                     প্রয়োগ করুন
                 </button>

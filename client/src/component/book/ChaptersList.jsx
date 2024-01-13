@@ -28,7 +28,7 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
                 <span className="text-sm">{book?.book_name}</span>
             </div>
             <div
-                className="h-[cal(100%-52px)] md:px-4 overflow-y-auto space-y-2 -mt-2 pt-2 md:mt-0"
+                className="h-[cal(100%-52px)] md:px-4 overflow-y-auto space-y-2 -mb-3 pt-6 pb-2 md:mt-0"
             >
                 <div
                     onClick={()=>setMenu(!menu)}
@@ -75,10 +75,10 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
                             <Link
                                 to={`/${name}/${chapter?.chapter_id}`}
                                 key={chapter._id}
-                                className="w-full p-5 group cursor-pointer bg-white hover:bg-green-100 flex justify-between items-center space-x-6 md:space-x-2 md:border-b-[0.5px] border-gray-100 rounded-xl md:hover:rounded-xl transition-all duration-500"
+                                className="w-full p-5 group cursor-pointer bg-white hover:bg-green-100 flex justify-between items-center space-x-4 md:space-x-2 md:border-b-[0.5px] border-gray-100 rounded-xl md:hover:rounded-xl transition-all duration-500"
                             >
                                 <div
-                                    className="w-1/12"
+                                    className="w-16"
                                 >
                                     <div
                                         className="flex justify-center items-center bg-gray-200 group-hover:bg-[#2b9e76] group-hover:text-white text-gray-400 w-12 h-12 rounded-full"
@@ -87,7 +87,7 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
                                     </div>
                                 </div>
                                 <div
-                                    className="w-11/12 flex justify-between"
+                                    className="w-11/12 flex flex-col md:flex-row justify-between"
                                 >
                                     <p
                                         className="group-hover:text-[#2b9e76] font-medium"
@@ -95,6 +95,7 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
                                         {chapter?.title}
                                     </p>
                                     <p className="text-gray-500 text-sm">
+                                        <span className='md:hidden'>হাদিসের রেঞ্জঃ </span>
                                         {toBengaliNumber(chapter?.hadis_range)}
                                     </p>
                                 </div>

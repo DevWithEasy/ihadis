@@ -30,7 +30,7 @@ const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChan
             >
                 <div
                     onClick={() => setMenu(!menu)}
-                    className='md:hidden p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                    className='md:hidden p-4 my-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
                 >
                     <AiOutlineMenu size={20} />
                     <span className="text-xl">{book?.title}</span>

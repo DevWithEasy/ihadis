@@ -1,5 +1,6 @@
 import React from 'react';
-import hadithBook from '../../assets/images/hadith.svg';
+import hadithBook from '../../assets/images/book.svg';
+import { GiBlackBook } from "react-icons/gi";
 
 const HadithSection = ({ section }) => {
     return (
@@ -9,9 +10,9 @@ const HadithSection = ({ section }) => {
             <div
                 className='flex items-center space-x-3'
             >
-                <img
-                    src={hadithBook}
-                    className=''
+                <GiBlackBook
+                    size={25}
+                    className='text-[#2b9e76]'
                 />
                 <p>{section?.number}</p>
             </div>

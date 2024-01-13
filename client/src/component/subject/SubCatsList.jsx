@@ -5,6 +5,7 @@ import { FaBookOpen } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useHadithStore from '../../store/useStore';
 import { AiOutlineMenu } from "react-icons/ai";
+import SubMenu from './SubMenu';
 
 const SubCatsList = ({ id,book,category, state, setState, page,handleChange }) => {
     const { categoriesSub } = useHadithStore()
@@ -29,7 +30,7 @@ const SubCatsList = ({ id,book,category, state, setState, page,handleChange }) =
             >
                 <div
                     onClick={()=>setMenu(!menu)}
-                    className='md:hidden p-4 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                    className='md:hidden mt-4 p-4 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
                 >
                     <AiOutlineMenu size={20}/>
                     <span className="text-xl">{category?.bn}</span>
@@ -65,10 +66,10 @@ const SubCatsList = ({ id,book,category, state, setState, page,handleChange }) =
                             <Link
                                 to={`/hadith/subject/category/${id}/${category?.id}`}
                                 key={category._id}
-                                className="w-full p-5 group cursor-pointer bg-white hover:bg-green-100 flex justify-between items-center space-x-6 md:space-x-2 md:border-b-[0.5px] border-gray-100 rounded-xl md:hover:rounded-xl transition-all duration-500"
+                                className="w-full p-5 group cursor-pointer bg-white hover:bg-green-100 flex justify-between items-center space-x-4 md:space-x-2 md:border-b-[0.5px] border-gray-100 rounded-xl md:hover:rounded-xl transition-all duration-500"
                             >
                                 <div
-                                    className="w-1/12"
+                                    className="w-16"
                                 >
                                     <div
                                         className="flex justify-center items-center bg-gray-200 group-hover:bg-[#2b9e76] group-hover:text-white text-gray-400 w-12 h-12 rounded-full"
@@ -90,6 +91,9 @@ const SubCatsList = ({ id,book,category, state, setState, page,handleChange }) =
                     }
                 </div>
             </div>
+            {menu &&
+                <SubMenu {...{ id, menu, setMenu, state, setState, page, handleChange }} />
+            }
         </div>
     );
 };
