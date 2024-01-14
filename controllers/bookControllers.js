@@ -157,6 +157,8 @@ exports.searchHadith = async (req, res, next) => {
                 bn: { $regex: q, $options: 'i' },
             }
 
+            const count = await Hadith.countDocuments(query)
+
             const hadiths = await Hadith.find(query)
 
             const data = []
@@ -174,6 +176,7 @@ exports.searchHadith = async (req, res, next) => {
                 success: true,
                 status: 200,
                 message: 'Hadiths found',
+                total : count,
                 data: data
             })
             

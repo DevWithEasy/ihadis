@@ -9,6 +9,7 @@ import apiUrl from '../utils/apiUrl';
 import HadithListSkalaton from '../component/book/HadithListSkalaton';
 import SearchHadith from '../component/SearchHadith';
 import ReactPaginate from 'react-paginate';
+import { toBengaliNumber } from 'bengali-number';
 
 const Search = () => {
     const navigate = useNavigate()
@@ -83,7 +84,7 @@ const Search = () => {
                         <p
                             className=''
                         >
-                            সর্বমোট ফলাফল পাওয়া গেছে : <span className='text-[#2b9e76]'>{total}</span> টি
+                            সর্বমোট ফলাফল পাওয়া গেছে : <span className='text-[#2b9e76]'>{toBengaliNumber(total)}</span> টি
                         </p>
                     </div>
                 </div>
