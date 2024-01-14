@@ -32,7 +32,7 @@ const Home = () => {
             className="bg-gray-50"
         >
             <Head {...{
-                title : 'iHadith - Read Hadith Online'
+                title : 'ihadis - Read Hadith Online'
             }}/>
 
             <Header {...{open,setOpen,menu,setMenu}}/>

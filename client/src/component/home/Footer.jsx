@@ -12,7 +12,7 @@ const Footer = () => {
                     আল হাদিস
                 </Link>
             </div>
-            <div className="grid md:grid-cols-4 md:gap-x-6 pt-5 space-y-5 md:space-y-0">
+            <div className="grid md:grid-cols-3 md:gap-x-6 pt-5 space-y-5 md:space-y-0">
                 <div className="w-full space-y-3">
                     <h3 className="text-lg font-medium">হাদিস পড়ুন, শিখুন এবং জানুন</h3>
                     <p
@@ -70,7 +70,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="w-full flex justify-between">
-                    <div>
+                    <div
+                        className="w-1/2"
+                    >
                         <h3 className="text-lg font-medium">
                             আমাদের প্রজেক্ট সমূহ
                         </h3>
@@ -93,7 +95,9 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <div>
+                    <div
+                        className="w-1/2"
+                    >
                         <h3 className="text-lg font-medium">
                             জনপ্রিয় সাইটসমূহ
                         </h3>

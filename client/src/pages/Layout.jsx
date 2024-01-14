@@ -1,5 +1,5 @@
 import image from '../assets/images/home-logo.png'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { AiOutlineHome } from 'react-icons/ai'
 import { FiBookOpen } from 'react-icons/fi'
 import { BsBookmark, BsSend } from 'react-icons/bs'
@@ -14,28 +14,39 @@ import BookSearchModal from '../component/book/BookSearchModal'
 import { book, bookmark, home, subject } from '../utils/images'
 
 const Layout = ({ children }) => {
+    const navigate = useNavigate()
     const { books } = useHadithStore()
     const [open, setOpen] = useState(false)
     const [menu, setMenu] = useState(false)
     const [view, setView] = useState(false)
+    const [query, setQuery] = useState('')
     const links = [
         {
-            path : '/',
-            icon : home
+            path: '/',
+            icon: home
         },
         {
-            path : '/allhadiths',
-            icon : book
+            path: '/allhadiths',
+            icon: book
         },
         {
-            path : '/hadith/subject/category',
-            icon : subject
+            path: '/hadith/subject/category',
+            icon: subject
         },
         {
-            path : '/bookmark',
-            icon : bookmark
+            path: '/bookmark',
+            icon: bookmark
         },
     ]
+
+    const searchHadith = async (e) => {
+        e.preventDefault()
+        try {
+            navigate(`/search/?q=${query}`)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <div
@@ -61,7 +72,8 @@ const Layout = ({ children }) => {
                 <div
                     className='flex justify-end items-center space-x-2 md:space-x-6'
                 >
-                    <div
+                    <form
+                        onSubmit={searchHadith}
                         className='hidden md:flex justify-between items-center space-x-2 p-3 border-2 rounded-lg'
                     >
                         <BiSearch
@@ -69,13 +81,14 @@ const Layout = ({ children }) => {
                         />
                         <input
                             type='text'
+                            onChange={(e) => setQuery(e.target.value)}
                             placeholder='Search Hadith'
                             className='font-light text-sm focus:outline-none'
                         />
-                    </div>
+                    </form>
                     <BiSearch
                         size={40}
-                        onClick={()=>setView(!view)}
+                        onClick={() => setView(!view)}
                         className="md:hidden bg-gray-200 p-2 rounded cursor-pointer"
                     />
                     <PiMoonStarsLight

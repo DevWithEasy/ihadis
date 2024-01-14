@@ -38,10 +38,10 @@ const Book = () => {
         <div
             className="px-2 h-full flex justify-between md:space-x-6"
         >
-            <div className="hidden md:w-[450px] h-full md:flex flex-col justify-between bg-white rounded-2xl">
+            <div className="hidden md:w-[450px] h-full md:flex flex-col bg-white rounded-2xl">
                 <BookHeader {...{ state, setState }} />
                 <div
-                    className="p-2 h-[cal(100%-250px)] overflow-y-auto"
+                    className="p-2 h-[cal(100%-120px)] overflow-y-auto"
                 >
                     {state === 'book' ?
                         <BookList {...{ handleChange: handleBookChange }} />

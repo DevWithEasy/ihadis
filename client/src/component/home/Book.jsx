@@ -1,6 +1,6 @@
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from "react-router-dom";
-import book from '../../assets/images/book.svg';
+import { BiBook } from 'react-icons/bi';
 import { toBengaliNumber } from 'bengali-number';
 
 // eslint-disable-next-line react/prop-types
@@ -64,9 +64,8 @@ const Book = ({ books }) => {
                     to='/allhadiths'
                     className="flex items-center space-x-2 bg-[#2b9e76] px-4 py-3 text-white rounded-xl"
                 >
-                    <img
-                        src={book}
-                        className=""
+                    <BiBook
+                        size={20}
                     />
                     <span>
                         সকল হাদিস গ্রন্থসমূহ

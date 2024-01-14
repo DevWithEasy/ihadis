@@ -6,6 +6,7 @@ const hadithStore = (set)=>({
     categories : [],
     categoriesSub : [],
     chapters : [],
+    writers : [],
     addBookSub : (data)=>{
         set(()=>({
             books : data.books,
@@ -20,6 +21,11 @@ const hadithStore = (set)=>({
     addCategoriesSub : (data)=>{
         set(()=>({
             categoriesSub : data,
+        }))
+    },
+    addWriters : (data)=>{
+        set(()=>({
+            writers : data,
         }))
     }
 

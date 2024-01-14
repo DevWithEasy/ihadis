@@ -1,7 +1,7 @@
 import { toBengaliNumber } from 'bengali-number';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from "react-router-dom";
-import subject from '../../assets/images/subject.svg';
+import { PiBooksLight } from "react-icons/pi";
 
 // eslint-disable-next-line react/prop-types
 const Category = ({categories}) => {
@@ -64,12 +64,12 @@ const Category = ({categories}) => {
                 to='/allsubjects'
                 className="flex items-center space-x-2 bg-[#2b9e76] px-4 py-3 text-white rounded-xl"
                 >
-                    <img
-                        src={subject}
+                    <PiBooksLight
+                        size={20}
                         className=""
                     />
                     <span>
-                        সকল হাদিস গ্রন্থসমূহ
+                        সকল হাদিস বিভাগ সমূহ 
                     </span>
                     <BsArrowRight/>
                 </Link>
