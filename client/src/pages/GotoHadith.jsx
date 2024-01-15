@@ -51,7 +51,7 @@ const GotoHadith = () => {
         <div
             className="px-2 h-full flex justify-between md:space-x-6"
         >
-            <div className="hidden md:w-[450px] h-full md:flex flex-col justify-between bg-white rounded-2xl">
+            <div className="hidden md:w-[450px] h-full md:flex flex-col justify-between bg-white rounded-2xl dark:bg-slate-600">
                 <BookHeader {...{ state, setState }} />
                 <div
                     className="p-2 h-[cal(100%-250px)] overflow-y-auto"

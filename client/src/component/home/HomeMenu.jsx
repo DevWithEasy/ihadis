@@ -12,10 +12,10 @@ const HomeMenu = ({ open,setOpen,menu, setMenu }) => {
     const navigate = useNavigate()
     return (
         <div
-            className='fixed top-0 left-0 h-screen w-full bg-white z-50 overflow-y-auto'
+            className='fixed top-0 left-0 h-screen w-full bg-white z-50 overflow-y-auto dark:bg-slate-700 dark:text-gray-300'
         >
             <div
-                className='sticky top-0                              bg-white'
+                className='sticky top-0bg-white'
             >
                 <div
                     className='p-4 flex justify-between items-center text-xl'
@@ -57,35 +57,35 @@ const HomeMenu = ({ open,setOpen,menu, setMenu }) => {
                         setMenu(!menu),
                         setOpen(!open)
                     }}
-                    className='w-full p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
+                    className='w-full p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500 dark:hover:bg-slate-600'
                 >
-                    <BsSend size={20} className='text-[#2b9e76]'/>
+                    <BsSend size={20} className='text-[#2b9e76] '/>
                     <span className='text-lg'>হাদিসে যান</span>
                 </button>
                 <Link
                     to='/allhadiths'
-                    className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
+                    className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500 dark:hover:bg-slate-600'
                 >
-                    <FiBookOpen size={20} className='text-[#2b9e76]'/>
+                    <FiBookOpen size={20} className='text-[#2b9e76] '/>
                     <span className='text-lg'>হাদিস গ্রন্থসমূহ</span>
                 </Link>
                 <Link
                     to='/donate'
-                    className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
+                    className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500 dark:hover:bg-slate-600'
                 >
-                    <BiDonateBlood size={20} className='text-[#2b9e76]'/>
+                    <BiDonateBlood size={20} className='text-[#2b9e76] '/>
                     <span className='text-lg'>সাপোর্ট করুন</span>
                 </Link>
                 <Link
                     to='/projects'
-                    className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500'
+                    className='p-2 flex items-center space-x-3 hover:bg-gray-100 rounded-xl transition-all duration-500 dark:hover:bg-slate-600'
                 >
-                    <FaCloudDownloadAlt size={20} className='text-[#2b9e76]'/>
+                    <FaCloudDownloadAlt size={20} className='text-[#2b9e76] '/>
                     <span className='text-lg'>আমাদের প্রজেক্ট</span>
                 </Link>
             </div>
             <div
-                className='mx-4 p-4 bg-[#2b9e76] text-white rounded-xl'
+                className='mx-4 p-4 bg-[#2b9e76] text-white rounded-xl dark:bg-slate-600 dark:text-gray-300'
             >
                 <p
                     className='text-xl font-semibold'
@@ -99,7 +99,7 @@ const HomeMenu = ({ open,setOpen,menu, setMenu }) => {
                     className='p-2 flex justify-center'
                 >
                     <button
-                        className='px-6 py-2 bg-white text-[#2b9e76] rounded-md'
+                        className='px-6 py-2 bg-white text-[#2b9e76] rounded-md dark:bg-slate-700'
                     >
                     সাপোর্ট করুন
                     </button>

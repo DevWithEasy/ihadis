@@ -43,7 +43,7 @@ const Chapter = () => {
         <div
             className="h-full flex justify-between p-2 md:p-0 md:space-x-6"
         >
-            <div className="hidden w-[450px] h-full md:flex flex-col bg-white rounded-2xl">
+            <div className="hidden w-[450px] h-full md:flex flex-col bg-white rounded-2xl dark:bg-slate-600 dark:text-gray-300">
                 <BookHeader {...{ state, setState }} />
                 <div
                     className="p-2 h-[cal(100%-250px)] overflow-y-auto"
@@ -56,6 +56,7 @@ const Chapter = () => {
 
                 </div>
             </div>
+
             {loading ?
                 <HadithListSkalaton />
                 :

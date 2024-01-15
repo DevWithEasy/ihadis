@@ -7,7 +7,7 @@ import { BiChevronDown, BiChevronRight } from 'react-icons/bi'
 import HeroSelect from './home/HeroSelect'
 import { useNavigate } from 'react-router-dom'
 
-const SearchFilter = ({ q, book_id, chap_id }) => {
+const SearchFilter = ({ q, book_id, chap_id,view,setView }) => {
     const navigate = useNavigate()
     const { books } = useHadithStore()
     const [book, setBook] = useState(false)
@@ -24,6 +24,7 @@ const SearchFilter = ({ q, book_id, chap_id }) => {
             return alert('সার্চিং কুয়্যেরি, বই এবং চেপ্টার বাছাই করুন।')
         } else {
             navigate(`/search/?q=${query}&book_id=${bookId}&chap_id=${chapterId}`)
+            view && setView(!view)
         }
     }
 
@@ -43,7 +44,7 @@ const SearchFilter = ({ q, book_id, chap_id }) => {
     }, [bookId])
     
     return (
-        <div className="md:w-[350px] h-84 p-4 space-y-3 bg-white rounded-2xl border md:border-none">
+        <div className="md:w-[350px] h-84 p-4 space-y-3 bg-white rounded-2xl border md:border-none dark:bg-slate-600 dark:text-gray-300">
             <div
                 className='py-2 flex items-center space-x-2 text-[#2b9e76] font-semibold'
             >
@@ -57,7 +58,7 @@ const SearchFilter = ({ q, book_id, chap_id }) => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder='Search hadith'
-                    className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none'
+                    className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none dark:bg-gray-700'
                 />
                 <div
                     className='w-full space-y-2'

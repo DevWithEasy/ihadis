@@ -4,7 +4,7 @@ import { BiSearch } from 'react-icons/bi';
 const BookHeader = ({ state, setState }) => {
     return (
         <div
-            className="md:min-h-[120px]"
+            className="md:min-h-[120px]0"
         >
             <div
                 className="flex justify-between border md:border-none text-xl"

@@ -103,19 +103,19 @@ const Layout = ({ children }) => {
                     <BiSearch
                         size={40}
                         onClick={() => setView(!view)}
-                        className="md:hidden bg-gray-200 p-2 rounded cursor-pointer"
+                        className="md:hidden bg-gray-200 p-2 rounded cursor-pointer dark:bg-slate-700 dark:text-gray-300"
                     />
                     {dark ?
                         <PiMoonStarsLight
                         size={40}
                         onClick={darkHandler}
-                        className="bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700"
+                        className="bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700 dark:text-gray-300"
                     />
                     :
                     <IoSunnyOutline
                         size={40}
                         onClick={darkHandler}
-                        className="bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700"
+                        className="bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700 dark:text-gray-300"
                     />
                     }
                 </div>

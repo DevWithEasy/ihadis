@@ -5,7 +5,7 @@ import { BiBook } from 'react-icons/bi';
 const HadithBook = ({ book }) => {
     return (
         <div
-            className='hidden mb-4 p-4 md:flex justify-between items-center bg-white md:rounded-b-lg'
+            className='hidden mb-4 p-4 md:flex justify-between items-center bg-white md:rounded-b-lg dark:bg-slate-700 dark:rounded-xl dark:pb-3'
         >
             <div className='flex items-center space-x-3'>
                 <BiBook

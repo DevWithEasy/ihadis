@@ -9,13 +9,13 @@ import { Link } from 'react-router-dom'
 const MenuPopup = ({ menu, setMenu }) => {
     return (
         <div
-            className="absolute top-5 w-3/12 space-y-5 py-6 bg-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] rounded-xl"
+            className="absolute top-5 w-3/12 space-y-5 py-6 bg-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] rounded-xl dark:bg-slate-600 dark:text-gray-300"
         >
             <div>
                 <Link
                     to='/privacy'
                     onClick={()=>setMenu(!menu)}
-                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50'
+                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 hover:dark:bg-slate-700'
                 >
                     <PiNoteFill
                         size={20}
@@ -28,7 +28,7 @@ const MenuPopup = ({ menu, setMenu }) => {
                 <Link
                     to='/tahkik'
                     onClick={()=>setMenu(!menu)}
-                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50'
+                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 hover:dark:bg-slate-700'
                 >
                     <BsFillFileCheckFill
                         size={20}
@@ -41,7 +41,7 @@ const MenuPopup = ({ menu, setMenu }) => {
                 <Link
                     to='/writers'
                     onClick={()=>setMenu(!menu)}
-                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50'
+                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 hover:dark:bg-slate-700'
                 >
                     <FaUser
                         size={20}
@@ -61,7 +61,7 @@ const MenuPopup = ({ menu, setMenu }) => {
                 <Link
                     to='/projects'
                     onClick={()=>setMenu(!menu)}
-                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50'
+                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 hover:dark:bg-slate-700'
                 >
                     <CgWorkAlt
                         size={20}
@@ -81,7 +81,7 @@ const MenuPopup = ({ menu, setMenu }) => {
                 <Link
                     to='/donate'
                     onClick={()=>setMenu(!menu)}
-                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50'
+                    className='flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 hover:dark:bg-slate-700'
                 >
                     <BiSolidDonateBlood
                         size={20}

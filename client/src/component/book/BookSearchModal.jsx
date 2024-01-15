@@ -43,10 +43,10 @@ const BookSearchModal = ({ view, setView }) => {
 
     return (
         <div
-            className='fixed left-0 top-0 h-screen w-full  pt-10 bg-black/50 z-10'
+            className='fixed left-0 top-0 h-screen w-full  pt-10 bg-black/50 z-10 dark:bg-slate-700/50'
         >
             <div
-                className='w-11/12 p-4 mx-auto bg-white rounded-xl'
+                className='w-11/12 p-4 mx-auto bg-white rounded-xl dark:bg-slate-700 dark:text-gray-300'
             >
                 <div
                     className='space-y-5'
@@ -55,7 +55,7 @@ const BookSearchModal = ({ view, setView }) => {
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder='Search hadith'
-                        className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none'
+                        className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none dark:bg-slate-600'
                     />
                     <div
                         className='w-full space-y-2'
@@ -163,7 +163,7 @@ const BookSearchModal = ({ view, setView }) => {
                 >
                     <button
                         onClick={() => setView(!view)}
-                        className='px-4 py-2 bg-gray-100 text-sm rounded-md'
+                        className='px-4 py-2 bg-gray-100 text-sm rounded-md dark:bg-slate-600'
                     >
                         বাতিল
                     </button>

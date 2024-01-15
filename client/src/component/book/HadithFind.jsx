@@ -8,7 +8,7 @@ const HadithFind = ({ book, chapter, section, hadith }) => {
     // const { book, chapter, section, hadith } = data
     return (
         <div
-            className="w-full h-full pb-[58px] md:pb-0 flex flex-col rounded-2xl overflow-y-auto"
+            className="w-full h-full pt-4 pb-[58px] md:pb-0 flex flex-col rounded-2xl overflow-y-auto dark:text-gray-300"
         >
             <HadithBook {...{ book }} />
 

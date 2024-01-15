@@ -65,7 +65,7 @@ const Search = () => {
             >
                 <div
                     onClick={() => setView(!view)}
-                    className='md:hidden my-4 p-4 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                    className='md:hidden my-4 p-4 flex items-center space-x-2 bg-white rounded-xl cursor-pointer dark:bg-slate-600 dark:text-gray-300'
                 >
                     <CiFilter size={25} className='text-[#2b9e76]' />
                     <span>ফিল্টার</span>
@@ -75,7 +75,7 @@ const Search = () => {
                     :
                     <>
                         <div
-                            className='mb-4 p-4 flex items-center space-x-4 bg-white rounded-xl'
+                            className='mb-4 p-4 flex items-center space-x-4 bg-white rounded-xl dark:bg-slate-600 dark:text-gray-300'
                         >
                             <BiSearch size={45} className='hidden md:block text-[#2b9e76]' />
                             <div

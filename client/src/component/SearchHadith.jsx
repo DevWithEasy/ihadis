@@ -11,7 +11,7 @@ const SearchHadith = ({ q, hadith }) => {
     return (
         <div
             key={hadith?._id}
-            className='p-4 space-y-4 bg-white rounded-lg'
+            className='p-4 space-y-4 bg-white rounded-lg dark:bg-slate-600 dark:text-gray-300'
         >
             <div
                 className='flex justify-between items-center text-[#2b9e76] '

@@ -12,10 +12,10 @@ const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, pa
     
     return (
         <div
-            className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl overflow-hidden"
+            className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl overflow-hidden dark:bg-slate-600 dark:text-gray-300"
         >
             <div
-                className="hidden bg-gray-50 h-[52px] mr-2 px-4 py-5 md:flex items-center space-x-2 border-b-2 text-gray-500 rounded-t-2xl"
+                className="hidden h-[52px] px-4 py-5 md:flex items-center space-x-2 bg-gray-50 border-b-2 rounded-t-2xl dark:bg-slate-500 dark:border-gray-500"
             >
                 <FaBookOpen
                     size={20}
@@ -28,7 +28,7 @@ const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, pa
                 <span className="text-sm">{categorySub?.id}</span>
             </div>
             <div
-                className="h-[cal(100%-52px)] overflow-y-auto"
+                className="h-[cal(100%-52px)] md:px-4 overflow-y-auto space-y-2 -mb-3 pt-6 md:pt-0 pb-2 md:mt-0 dark:px-2"
             >
                 <div
                     onClick={() => setMenu(!menu)}

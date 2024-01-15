@@ -13,7 +13,7 @@ const HeroSelect = ({ open, setOpen,data,id,setId }) => {
                         <div 
                             key={book._id}
                             onClick={()=>setId(book.id)}
-                            className="w-full p-2 flex items-center space-x-3 hover:bg-gray-100 hover:rounded-md cursor-pointer"
+                            className="w-full p-2 flex items-center space-x-3 hover:bg-gray-100 hover:rounded-md cursor-pointer dark:hover:bg-slate-700"
                         >
                             {
                                 id === book.id ? 

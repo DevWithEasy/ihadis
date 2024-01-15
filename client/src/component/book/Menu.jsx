@@ -3,22 +3,22 @@ import BookHeader from './BookHeader';
 import BookList from './BookList';
 import ChapterList from './ChapterList';
 
-const Menu = ({name,menu,setMenu,state,setState,page,handleChange}) => {
+const Menu = ({ name, menu, setMenu, state, setState, page, handleChange }) => {
     console.log(page)
     return (
         <div
-            className='fixed top-0 left-0 h-screen w-full bg-white z-50 overflow-y-auto'
+            className='fixed top-0 left-0 h-screen w-full bg-white z-50 overflow-y-auto dark:bg-slate-600'
         >
             <div
-                className='sticky top-0 bg-white'
+                className='sticky top-0 px-2 pb-2 bg-white dark:bg-slate-600'
             >
-            <div
-                className='p-4 flex justify-between items-center text-xl'
-            >
-                <span className=''>ক্যাটাগরি</span>
-                <span onClick={()=>setMenu(!menu)} className='px-4 cursor-pointer' >X</span>
-            </div>
-            <BookHeader {...{state,setState}}/>
+                <div
+                    className='p-4 flex justify-between items-center text-xl'
+                >
+                    <span className=''>ক্যাটাগরি</span>
+                    <span onClick={() => setMenu(!menu)} className='px-4 cursor-pointer' >X</span>
+                </div>
+                <BookHeader {...{ state, setState }} />
             </div>
             <div>
                 <div

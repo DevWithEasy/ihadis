@@ -5,7 +5,7 @@ import { GiBlackBook } from "react-icons/gi";
 const HadithSection = ({ section }) => {
     return (
         <div
-            className='p-4 bg-white rounded-lg space-y-3'
+            className='p-4 bg-white rounded-lg space-y-3 dark:bg-slate-700'
         >
             <div
                 className='flex items-center space-x-3'
