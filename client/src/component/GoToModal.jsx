@@ -16,13 +16,20 @@ const GoToModal = ({ open, setOpen }) => {
         }
     }
 
+    const handleNavigate = (e) => {
+        e.preventDefault()
+        navigate(`/${book.book_name}/hadith/${hadithId}`)
+        setOpen(!open)
+    }
+
     return (
         <div
             id='wrapper'
             onClick={handleOpen}
             className="h-screen w-full fixed top-0 left-0 z-40 bg-black/50 flex justify-center items-center"
         >
-            <div
+            <form
+                onSubmit={handleNavigate}
                 className="w-11/12 md:w-4/12 mx-auto space-y-5 p-6 bg-white rounded-2xl animate-open"
             >
                 <h2
@@ -78,16 +85,12 @@ const GoToModal = ({ open, setOpen }) => {
                     className='flex justify-end'
                 >
                     <button
-                        onClick={() => {
-                            navigate(`/${book.book_name}/hadith/${hadithId}`)
-                            setOpen(!open)
-                        }}
                         className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-lg'
                     >
                         প্রয়োগ করুন
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
     );
 };

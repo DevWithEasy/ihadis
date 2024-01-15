@@ -120,11 +120,11 @@ exports.getAllBooks = async (req, res, next) => {
 exports.goToHadith = async (req, res, next) => {
     try {
         const hadith = await Hadith.findOne({ book_id: req.params.bookId, hadith_id: req.params.hadithId })
-
-        const chapter = await Chapter.findOne({ id: hadith.chapter_id })
-
-        const section = await Section.findOne({ chapter_id: chapter.id })
-
+        
+        const chapter = await Chapter.findOne({ chapter_id: hadith.chapter_id })
+        
+        const section = await Section.findOne({ chapter_id: hadith.chapter_id })
+        
         res.status(200).json({
             success: true,
             status: 200,
@@ -136,6 +136,7 @@ exports.goToHadith = async (req, res, next) => {
             }
         })
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             success: false,
             status: 500,
@@ -184,6 +185,8 @@ exports.searchHadith = async (req, res, next) => {
             const query = {
                 bn: { $regex: q, $options: 'i' }
             }
+            const count = await Hadith.countDocuments(query)
+
             const page = Number(page_no)
 
             const hadiths = await Hadith.find(query)
@@ -205,6 +208,7 @@ exports.searchHadith = async (req, res, next) => {
                 success: true,
                 status: 200,
                 message: 'Hadiths found',
+                total : count,
                 data: data
             })
         } else{

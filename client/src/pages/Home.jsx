@@ -7,11 +7,13 @@ import { Book, Head,Category, Footer, Header, Hero, HeroMobile, Slider } from ".
 import useHadithStore from "../store/useStore";
 import apiUrl from "../utils/apiUrl";
 import HomeMenu from '../component/home/HomeMenu';
+import Warning from '../component/Warning';
 
 
 const Home = () => {
     const [open,setOpen] = useState(false)
     const [menu,setMenu] = useState(false)
+    const [warning,setWarning] = useState(false)
     const {books,categories,addBookSub} = useHadithStore()
     const getData = async ()=>{
         try {
@@ -24,6 +26,9 @@ const Home = () => {
         }
     }
     useEffect(()=>{
+        if(!localStorage.getItem('warning')){
+            setWarning(true)
+        }
         getData()
     },[])
     
@@ -56,6 +61,9 @@ const Home = () => {
             }
             {menu &&
                 <HomeMenu {...{open,setOpen,menu,setMenu}}/>
+            }
+            {warning &&
+                <Warning {...{setWarning}}/>
             }
         </div>
     );

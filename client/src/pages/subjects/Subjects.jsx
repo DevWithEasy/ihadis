@@ -2,10 +2,11 @@ import { BiSearch } from "react-icons/bi";
 import useHadithStore from "../../store/useStore";
 import { toBengaliNumber } from "bengali-number";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Subjects = () => {
     const {categories} = useHadithStore()
-    
+    const [query,setQuery] = useState('')
     return (
         <div
             className="md:w-9/12 px-2 pb-10 h-full mx-auto overflow-y-auto"
@@ -26,6 +27,8 @@ const Subjects = () => {
                     />
                     <input
                         type='text'
+                        value={query}
+                        onChange={(e)=>setQuery(e.target.value)}
                         placeholder='Search for filter'
                         className='w-full font-light text-sm focus:outline-none'
                     />
@@ -35,7 +38,11 @@ const Subjects = () => {
                 className="grid md:grid-cols-2 gap-2 md:gap-4 py-5"
             >
                 {categories &&
-                    categories.map(category =>
+                    categories.filter(category=>
+                        category?.bn.toLowerCase().includes(query.toLowerCase()) ||
+                        category?.en.toLowerCase().includes(query.toLowerCase()) 
+                    )
+                    .map(category =>
                         <Link
                             to={`/hadith/subject/category/${category.id}`}
                             key={category._id}

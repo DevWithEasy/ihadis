@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { AiOutlineMenu } from "react-icons/ai";
 import HadithBook from '../book/HadithBook';
 import Hadith from '../book/Hadith';
-import { Menu } from '../Index';
 import HadithChapter from '../book/HadithChapter';
 import SubMenu from './SubMenu';
 
@@ -13,7 +12,7 @@ const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, pa
     
     return (
         <div
-            className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl"
+            className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl overflow-hidden"
         >
             <div
                 className="hidden bg-gray-50 h-[52px] mr-2 px-4 py-5 md:flex items-center space-x-2 border-b-2 text-gray-500 rounded-t-2xl"

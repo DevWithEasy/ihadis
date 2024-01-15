@@ -11,10 +11,22 @@ const BookSearchModal = ({ view, setView }) => {
     const { books } = useHadithStore()
     const [book, setBook] = useState(false)
     const [subject, setSubject] = useState(false)
-    const [query, setQuery] = useState('')
+    const [query, setQuery] = useState()
     const [bookId, setBookId] = useState()
     const [chapterId, setChapterId] = useState()
     const [chapters, setChapters] = useState([])
+    const bookfind = books.find(book => book?.id == bookId)
+    const chapterfind = chapters.find(chapter => chapter?.id == chapterId)
+
+    const handleNavigate = () => {
+        if (!query || !bookId || !chapterId) {
+            return alert('সার্চিং কুয়্যেরি, বই এবং চেপ্টার বাছাই করুন।')
+        } else {
+            navigate(`/search/?q=${query}&book_id=${bookId}&chap_id=${chapterId}`)
+            setView(false)
+        }
+    }
+
     const getChapters = async (id) => {
         try {
             const res = await axios.get(`${apiUrl}/api/book/chapter/${id}`)
@@ -28,7 +40,6 @@ const BookSearchModal = ({ view, setView }) => {
     useEffect(() => {
         bookId && getChapters(bookId)
     }, [bookId])
-
 
     return (
         <div
@@ -62,7 +73,11 @@ const BookSearchModal = ({ view, setView }) => {
                                 className='w-full flex justify-between items-center'
                             >
                                 <span>
-                                    সকল বই
+                                    {
+                                        bookfind?.title ?
+                                            bookfind?.title :
+                                            'সকল বই'
+                                    }
                                 </span>
                                 {!subject ? <BiChevronRight /> : <BiChevronDown />}
                             </button>
@@ -93,7 +108,11 @@ const BookSearchModal = ({ view, setView }) => {
                                 className='w-full flex justify-between items-center'
                             >
                                 <span>
-                                    সকল অধ্যায়
+                                    {
+                                        chapterfind?.title ?
+                                            chapterfind?.title :
+                                            'সকল অধ্যায়'
+                                    }
                                 </span>
                                 {!subject ? <BiChevronRight /> : <BiChevronDown />}
                             </button>
@@ -149,10 +168,7 @@ const BookSearchModal = ({ view, setView }) => {
                         বাতিল
                     </button>
                     <button
-                        onClick={() => {
-                            navigate(`/search/?q=${query}&book_id=${bookId}&chap_id=${chapterId}`)
-                            setView(!view)
-                        }}
+                        onClick={() => handleNavigate()}
                         className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-md'
                     >
                         সার্চ করুন

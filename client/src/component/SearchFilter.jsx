@@ -7,7 +7,7 @@ import { BiChevronDown, BiChevronRight } from 'react-icons/bi'
 import HeroSelect from './home/HeroSelect'
 import { useNavigate } from 'react-router-dom'
 
-const SearchFilter = ({ q,book_id,chap_id }) => {
+const SearchFilter = ({ q, book_id, chap_id }) => {
     const navigate = useNavigate()
     const { books } = useHadithStore()
     const [book, setBook] = useState(false)
@@ -16,6 +16,17 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
     const [bookId, setBookId] = useState(book_id)
     const [chapterId, setChapterId] = useState(chap_id)
     const [chapters, setChapters] = useState([])
+    const bookfind = books.find(book => book?.id == bookId)
+    const chapterfind = chapters.find(chapter => chapter?.id == chapterId)
+
+    const handleNavigate = () => {
+        if (query == null || !query || bookId== null || chapterId == null) {
+            return alert('সার্চিং কুয়্যেরি, বই এবং চেপ্টার বাছাই করুন।')
+        } else {
+            navigate(`/search/?q=${query}&book_id=${bookId}&chap_id=${chapterId}`)
+        }
+    }
+
     const getChapters = async (id) => {
         try {
             const res = await axios.get(`${apiUrl}/api/book/chapter/${id}`)
@@ -26,9 +37,11 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
             console.log(error)
         }
     }
+
     useEffect(() => {
         bookId && getChapters(bookId)
     }, [bookId])
+    
     return (
         <div className="md:w-[350px] h-84 p-4 space-y-3 bg-white rounded-2xl border md:border-none">
             <div
@@ -42,7 +55,7 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
             >
                 <input
                     value={query}
-                    onChange={(e)=>setQuery(e.target.value)}
+                    onChange={(e) => setQuery(e.target.value)}
                     placeholder='Search hadith'
                     className='w-full px-4 py-3 text-sm bg-gray-100 rounded-xl focus:outline-none'
                 />
@@ -62,7 +75,11 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
                             className='w-full flex justify-between items-center'
                         >
                             <span>
-                                সকল বই
+                                {
+                                    bookfind?.title ?
+                                        bookfind?.title :
+                                        'সকল বই'
+                                }
                             </span>
                             {!subject ? <BiChevronRight /> : <BiChevronDown />}
                         </button>
@@ -93,7 +110,11 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
                             className='w-full flex justify-between items-center'
                         >
                             <span>
-                                সকল অধ্যায়
+                                {
+                                    chapterfind?.title ?
+                                        chapterfind?.title :
+                                        'সকল অধ্যায়'
+                                }
                             </span>
                             {!subject ? <BiChevronRight /> : <BiChevronDown />}
                         </button>
@@ -118,7 +139,7 @@ const SearchFilter = ({ q,book_id,chap_id }) => {
                     ফিল্টার ক্লিয়ার
                 </button>
                 <button
-                    onClick={()=>navigate(`/search/?q=${query}&book_id=${bookId}&chap_id=${chapterId}`)}
+                    onClick={() => handleNavigate()}
                     className='px-4 py-2 bg-[#2b9e76] text-white rounded-md'
                 >
                     প্রয়োগ করুন

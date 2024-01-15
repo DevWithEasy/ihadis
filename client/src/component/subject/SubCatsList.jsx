@@ -11,6 +11,7 @@ const SubCatsList = ({ id,book,category, state, setState, page,handleChange }) =
     const { categoriesSub } = useHadithStore()
     const [open, setOpen] = useState(false)
     const [menu, setMenu] = useState(false)
+    const [query, setQuery] = useState('')
     
     return (
         <div
@@ -52,6 +53,8 @@ const SubCatsList = ({ id,book,category, state, setState, page,handleChange }) =
                         />
                         <input
                             type='text'
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
                             placeholder='Search for filter'
                             className='bg-gray-50 w-full font-light text-sm focus:outline-none'
                         />
@@ -61,8 +64,10 @@ const SubCatsList = ({ id,book,category, state, setState, page,handleChange }) =
                     className='space-y-2 md:space-y-0'
                 >
                     {categoriesSub &&
-                        // eslint-disable-next-line react/prop-types
-                        categoriesSub.map((category,i) =>
+                        categoriesSub.filter(category=>
+                            category?.bn.toLowerCase().includes(query.toLowerCase()) 
+                        )
+                        .map((category,i) =>
                             <Link
                                 to={`/hadith/subject/category/${id}/${category?.id}`}
                                 key={category._id}

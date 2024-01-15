@@ -12,7 +12,7 @@ const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChan
     const [menu, setMenu] = useState(false)
     return (
         <div
-            className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl"
+            className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl overflow-hidden"
         >
             <div
                 className="hidden bg-gray-50 h-[52px] mr-2 px-4 py-5 md:flex items-center space-x-2 border-b-2 text-gray-500 rounded-t-2xl"

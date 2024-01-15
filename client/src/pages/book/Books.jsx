@@ -2,9 +2,12 @@ import { toBengaliNumber } from "bengali-number";
 import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import useHadithStore from "../../store/useStore";
+import { useState } from "react";
 
 const Books = () => {
     const { books } = useHadithStore()
+    const [query,setQuery] = useState('')
+    
     return (
         <div
             className="w-full md:w-9/12 px-2 pb-10 h-full mx-auto overflow-y-auto"
@@ -25,6 +28,8 @@ const Books = () => {
                     />
                     <input
                         type='text'
+                        value={query}
+                        onChange={(e)=>setQuery(e.target.value)}
                         placeholder='Search for filter'
                         className='w-full font-light text-sm focus:outline-none'
                     />
@@ -34,7 +39,11 @@ const Books = () => {
                 className="grid md:grid-cols-2 gap-2 md:gap-4 py-5"
             >
                 {books &&
-                    books.map(book =>
+                    books.filter(book=>
+                        book?.book_name.toLowerCase().includes(query.toLowerCase()) ||
+                        book?.title.toLowerCase().includes(query.toLowerCase()) 
+                    )
+                    .map(book =>
                         <Link to={`/${book?.book_name}`}
                             key={book._id}
                             className="w-full p-5 group cursor-pointer bg-white flex justify-between items-center space-x-4 rounded-2xl transition-all duration-500"

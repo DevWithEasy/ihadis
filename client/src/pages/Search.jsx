@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SearchFilter from '../component/SearchFilter';
-import { useSearchParams ,useNavigate} from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 import { CiFilter } from 'react-icons/ci';
 import SearchFilterModal from '../component/SearchFilterModal';
 import { BiSearch } from 'react-icons/bi'
@@ -10,6 +10,7 @@ import HadithListSkalaton from '../component/book/HadithListSkalaton';
 import SearchHadith from '../component/SearchHadith';
 import ReactPaginate from 'react-paginate';
 import { toBengaliNumber } from 'bengali-number';
+import SearchHadithScalation from '../component/SearchHadithScalation';
 
 const Search = () => {
     const navigate = useNavigate()
@@ -41,13 +42,13 @@ const Search = () => {
     }
 
     const handlePageChange = ({ selected }) => {
-        setPage(selected)
-        navigate(`/search/?q=${q}&page_no=${selected}`)
+        setPage(selected + 1)
+        navigate(`/search/?q=${q}&page_no=${selected + 1}`)
     }
 
     useEffect(() => {
-        searchHadith(q, book_id, chap_id,page)
-    }, [q, book_id, chap_id,page])
+        searchHadith(q, book_id, chap_id, page)
+    }, [q, book_id, chap_id, page])
 
     console.log(pageCount)
     return (
@@ -69,48 +70,54 @@ const Search = () => {
                     <CiFilter size={25} className='text-[#2b9e76]' />
                     <span>ফিল্টার</span>
                 </div>
-                <div
-                    className='mb-4 p-4 flex items-center space-x-4 bg-white rounded-xl'
-                >
-                    <BiSearch size={45} className='hidden md:block text-[#2b9e76]' />
-                    <div
-                        className='space-y-2'
-                    >
-                        <p
-                            className='text-xl font-semibold'
+                {loading ?
+                    <SearchHadithScalation />
+                    :
+                    <>
+                        <div
+                            className='mb-4 p-4 flex items-center space-x-4 bg-white rounded-xl'
                         >
-                            আপনি (<span className='text-[#2b9e76]'>{q}</span>) লিখে সার্চ করেছেন
-                        </p>
-                        <p
-                            className=''
+                            <BiSearch size={45} className='hidden md:block text-[#2b9e76]' />
+                            <div
+                                className='space-y-2'
+                            >
+                                <p
+                                    className='text-xl font-semibold'
+                                >
+                                    আপনি (<span className='text-[#2b9e76]'>{q}</span>) লিখে সার্চ করেছেন
+                                </p>
+                                <p
+                                    className=''
+                                >
+                                    সর্বমোট ফলাফল পাওয়া গেছে : <span className='text-[#2b9e76]'>{toBengaliNumber(total)}</span> টি
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            className='space-y-4'
                         >
-                            সর্বমোট ফলাফল পাওয়া গেছে : <span className='text-[#2b9e76]'>{toBengaliNumber(total)}</span> টি
-                        </p>
-                    </div>
-                </div>
-                <div
-                    className='space-y-4'
-                >
-                    {loading ?
-                        <HadithListSkalaton />
-                        :
-                        hadiths.length > 0 && hadiths.map(hadith => <SearchHadith key={hadith._id} {...{ q, hadith }} />)
-                    }
-                </div>
-                <ReactPaginate
-                    breakLabel="..."
-                    nextLabel="next >"
-                    onPageChange={handlePageChange}
-                    pageRangeDisplayed={2}
-                    pageCount={pageCount}
-                    previousLabel="< previous"
-                    renderOnZeroPageCount={null}
-                    containerClassName="paginate"
-                    previousClassName="previousBtn"
-                    nextsClassName="nextBtn"
-                    disabledClassName="disabled"
-                    activeClassName="active"
-                />
+                            {
+                                hadiths.length > 0 && hadiths.map(hadith => <SearchHadith key={hadith._id} {...{ q, hadith }} />)
+                            }
+                        </div>
+                        {total > 10 &&
+                            <ReactPaginate
+                                breakLabel="..."
+                                nextLabel="next >"
+                                onPageChange={handlePageChange}
+                                pageRangeDisplayed={2}
+                                pageCount={pageCount}
+                                previousLabel="< previous"
+                                renderOnZeroPageCount={null}
+                                containerClassName="paginate"
+                                previousClassName="previousBtn"
+                                nextsClassName="nextBtn"
+                                disabledClassName="disabled"
+                                activeClassName="active"
+                            />
+                        }
+                    </>
+                }
             </div>
             {view &&
                 <SearchFilterModal {...{ q, book_id, chap_id, view, setView }} />

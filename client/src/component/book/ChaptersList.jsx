@@ -8,15 +8,15 @@ import BookDetailsModal from '../BookDetailsModal';
 import { AiOutlineMenu } from "react-icons/ai";
 import Menu from './Menu';
 
-// eslint-disable-next-line react/prop-types
-const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
+const ChaptersList = ({ name, book, state, setState, page, handleChange }) => {
     const { chapters } = useHadithStore()
     const [open, setOpen] = useState(false)
     const [menu, setMenu] = useState(false)
+    const [query, setQuery] = useState('')
 
     return (
         <div
-            className="w-full h-full pb-16 md:pb-0  flex flex-col md:bg-white md:rounded-2xl"
+            className="w-full h-full pb-16 md:pb-0  flex flex-col md:bg-white md:rounded-2xl overflow-hidden"
         >
             <div
                 className="hidden h-[52px] px-4 py-5 md:flex items-center space-x-2 bg-gray-50 border-b-2 rounded-t-2xl"
@@ -31,10 +31,10 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
                 className="h-[cal(100%-52px)] md:px-4 overflow-y-auto space-y-2 -mb-3 pt-6 pb-2 md:mt-0"
             >
                 <div
-                    onClick={()=>setMenu(!menu)}
+                    onClick={() => setMenu(!menu)}
                     className='md:hidden p-4 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
                 >
-                    <AiOutlineMenu size={20}/>
+                    <AiOutlineMenu size={20} />
                     <span className="text-xl">{book?.title}</span>
                 </div>
                 <div
@@ -54,6 +54,8 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
                         />
                         <input
                             type='text'
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
                             placeholder='Search for filter'
                             className='bg-gray-50 w-full font-light text-sm focus:outline-none'
                         />
@@ -70,8 +72,10 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
                     className='space-y-2 md:space-y-0'
                 >
                     {chapters &&
-                        // eslint-disable-next-line react/prop-types
-                        chapters.map(chapter =>
+                        chapters.filter(chapter=>
+                            chapter?.title.toLowerCase().includes(query.toLowerCase()) 
+                        )
+                        .map(chapter =>
                             <Link
                                 to={`/${name}/${chapter?.chapter_id}`}
                                 key={chapter._id}
@@ -105,7 +109,7 @@ const ChaptersList = ({ name,book, state, setState, page,handleChange }) => {
                 </div>
             </div>
             {menu &&
-                <Menu {...{name,menu,setMenu,state, setState, page,handleChange}}/>
+                <Menu {...{ name, menu, setMenu, state, setState, page, handleChange }} />
             }
         </div>
     );

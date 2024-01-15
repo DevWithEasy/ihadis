@@ -3,11 +3,20 @@ import { BsSearch } from 'react-icons/bs';
 import { GiSettingsKnobs } from 'react-icons/gi';
 import HomeSlider from './HomeSlider';
 import SearchSetting from './SearchSetting';
+import { useNavigate } from 'react-router-dom'
 import image from '../../assets/images/bismillah.svg'
 
 const Hero = () => {
+    const navigate = useNavigate()
     const [view, setView] = useState(false)
-
+    const [query, setQuery] = useState()
+    const handleNavigate = () => {
+        if (!query) {
+            return alert('সার্চিং কুয়্যেরি লিখুন।')
+        } else {
+            navigate(`/search/?q=${query}`)
+        }
+    }
     return (
         <div
             // style={{backgroundImage : `url(${image})`}}
@@ -22,6 +31,8 @@ const Hero = () => {
                 className='relative w-9/12 md:w-6/12 mx-auto flex justify-between items-center space-x-3 bg-white p-1 rounded-md'
             >
                 <input
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
                     placeholder='Search Hadith'
                     className='w-full px-4 text-black focus:outline-none text-sm'
                 />
@@ -31,13 +42,14 @@ const Hero = () => {
                     className='text-gray-500 cursor-pointer'
                 />
                 <button
+                    onClick={handleNavigate}
                     className='md:w-[200px] px-4 py-4 flex justify-center items-center space-x-2 bg-[#36a27c] rounded-xl md:rounded-l-none md:rounded-r-md'
                 >
                     <BsSearch />
                     <span className='hidden md:inline-block'>সার্চ করুন</span>
                 </button>
                 {view &&
-                    <SearchSetting {...{ view, setView }} />
+                    <SearchSetting {...{ query, view, setView }} />
                 }
             </div>
             <HomeSlider />

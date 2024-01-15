@@ -1,11 +1,43 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HeroSelect from './HeroSelect';
 import { BiChevronDown, BiChevronRight } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom'
+import useHadithStore from '../../store/useStore';
+import apiUrl from '../../utils/apiUrl';
+import axios from 'axios';
 
 // eslint-disable-next-line react/prop-types
-const SearchSetting = ({ view, setView }) => {
+const SearchSetting = ({query, view, setView }) => {
+    const navigate = useNavigate()
+    const { books } = useHadithStore()
     const [book, setBook] = useState(false)
     const [subject, setSubject] = useState(false)
+    const [bookId, setBookId] = useState()
+    const [chapterId, setChapterId] = useState()
+    const [chapters, setChapters] = useState([])
+    const bookfind = books.find(book => book?.id == bookId)
+    const chapterfind = chapters.find(chapter => chapter?.id == chapterId)
+    const handleNavigate = () => {
+        if (!query || !bookId || !chapterId) {
+            return alert('সার্চিং কুয়্যেরি, বই এবং চেপ্টার বাছাই করুন।')
+        } else {
+            navigate(`/search/?q=${query}&book_id=${bookId}&chap_id=${chapterId}`)
+            setView(false)
+        }
+    }
+    const getChapters = async (id) => {
+        try {
+            const res = await axios.get(`${apiUrl}/api/book/chapter/${id}`)
+            if (res.data.status === 200) {
+                setChapters(res.data.data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    useEffect(() => {
+        bookId && getChapters(bookId)
+    }, [bookId])
     return (
         <div
             className='absolute -left-3 top-20 z-10 w-full px-6 py-10 bg-white text-black rounded-lg shadow'
@@ -29,14 +61,21 @@ const SearchSetting = ({ view, setView }) => {
                             className='w-full flex justify-between items-center'
                         >
                             <span>
-                                সকল বই
+                                {
+                                    bookfind?.title ?
+                                        bookfind?.title :
+                                        'সকল বই'
+                                }
                             </span>
                             {!subject ? <BiChevronRight /> : <BiChevronDown />}
                         </button>
                         {book &&
                             <HeroSelect {...{
                                 open: book,
-                                setOpen: setBook
+                                setOpen: setBook,
+                                data: books,
+                                id: bookId,
+                                setId: setBookId
                             }} />
                         }
                     </div>
@@ -57,14 +96,21 @@ const SearchSetting = ({ view, setView }) => {
                             className='w-full flex justify-between items-center'
                         >
                             <span>
-                                সকল বই
+                                {
+                                    chapterfind?.title ?
+                                        chapterfind?.title :
+                                        'সকল অধ্যায়'
+                                }
                             </span>
                             {!subject ? <BiChevronRight /> : <BiChevronDown />}
                         </button>
                         {subject &&
                             <HeroSelect {...{
                                 open: subject,
-                                setOpen: setSubject
+                                setOpen: setSubject,
+                                data: chapters,
+                                id: chapterId,
+                                setId: setChapterId
                             }} />
                         }
                     </div>
@@ -110,7 +156,7 @@ const SearchSetting = ({ view, setView }) => {
                     বাতিল
                 </button>
                 <button
-                    onClick={() => setView(!view)}
+                    onClick={() => handleNavigate()}
                     className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-md'
                 >
                     সার্চ করুন
