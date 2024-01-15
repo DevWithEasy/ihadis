@@ -28,7 +28,7 @@ const ChaptersList = ({ name, book, state, setState, page, handleChange }) => {
                 <span className="text-sm">{book?.book_name}</span>
             </div>
             <div
-                className="h-[cal(100%-52px)] md:px-4 overflow-y-auto space-y-2 -mb-3 pt-6 pb-2 md:mt-0"
+                className="h-[cal(100%-52px)] md:px-4 overflow-y-auto space-y-2 -mb-3 pt-6 md:pt-0 pb-2 md:mt-0 dark:px-2"
             >
                 <div
                     onClick={() => setMenu(!menu)}
