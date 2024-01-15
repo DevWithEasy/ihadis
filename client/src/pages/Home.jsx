@@ -34,7 +34,7 @@ const Home = () => {
     
     return (
         <div
-            className="bg-gray-50"
+            className="bg-gray-50 dark:bg-slate-700"
         >
             <Head {...{
                 title : 'ihadis - Read Hadith Online'

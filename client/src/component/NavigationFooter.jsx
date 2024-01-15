@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 const NavigationFooter = ({open, setOpen}) => {
     return (
         <div
-            className='md:hidden fixed bottom-0 left-0 w-full px-4 py-2 flex justify-between bg-white shadow border-t z-10'
+            className='md:hidden fixed bottom-0 left-0 w-full px-4 py-2 flex justify-between bg-white shadow border-t z-10 dark:bg-slate-600 dark:text-gray-300 dark:border-t-0'
         >
             <NavLink
                 to='/'

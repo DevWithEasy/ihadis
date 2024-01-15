@@ -14,9 +14,9 @@ const Footer = () => {
             </div>
             <div className="grid md:grid-cols-3 md:gap-x-6 pt-5 space-y-5 md:space-y-0">
                 <div className="w-full space-y-3">
-                    <h3 className="text-lg font-medium">হাদিস পড়ুন, শিখুন এবং জানুন</h3>
+                    <h3 className="text-lg font-medium dark:text-gray-200">হাদিস পড়ুন, শিখুন এবং জানুন</h3>
                     <p
-                        className="text-gray-500"
+                        className="text-gray-500 dark:text-gray-300"
                     >
                         আমাদের লক্ষ্য ও উদ্দেশ্য হল সবচেয়ে উত্তম উৎস থেকে বিশুদ্ধ হাদীস
                         সকলের জন্য উন্মুক্ত করে দেয়া। আমরা এই ওয়েবসাইটটি সর্বাধিক গুরুত্বের
@@ -28,7 +28,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <div className="w-full space-y-3">
-                        <h3 className="text-lg font-medium">
+                        <h3 className="text-lg font-medium dark:text-gray-200">
                             নেভিগেট
                         </h3>
                         <div
@@ -73,7 +73,7 @@ const Footer = () => {
                     <div
                         className="w-1/2"
                     >
-                        <h3 className="text-lg font-medium">
+                        <h3 className="text-lg font-medium dark:text-gray-200">
                             আমাদের প্রজেক্ট সমূহ
                         </h3>
                         <div
@@ -98,7 +98,7 @@ const Footer = () => {
                     <div
                         className="w-1/2"
                     >
-                        <h3 className="text-lg font-medium">
+                        <h3 className="text-lg font-medium dark:text-gray-200">
                             জনপ্রিয় সাইটসমূহ
                         </h3>
                         <div

@@ -7,7 +7,7 @@ import { toBengaliNumber } from 'bengali-number';
 const Book = ({ books }) => {
     return (
         <div
-            className="mx-4 md:w-9/12 md:mx-auto py-5 md:py-10 space-y-5"
+        className="mx-4 md:w-9/12 md:mx-auto py-5 md:py-10 space-y-5 dark:text-gray-300"
         >
             <h2
                 className="text-3xl text-center"
@@ -17,7 +17,7 @@ const Book = ({ books }) => {
             <div
                 className="w-full flex justify-center items-center"
             >
-                <p className="md:w-1/2 text-gray-500 text-center">
+                <p className="md:w-1/2 text-gray-500 text-center dark:text-gray-300">
                     হাদিসের কিতাবগুলো মুসলিমদের জন্য হেদায়েত এবং অনুপ্রেরণার একটি গুরুত্বপূর্ণ উৎস। এই কিতাবগুলো মহানবী মুহাম্মদ (সাল্লাল্লাহু আলাইহি ওয়া সালাম)-এর সীরাত(জীবনী) ও দিক-নির্দেশনার প্রতি অন্তর্দৃষ্টি প্রদান করে।
                 </p>
             </div>
@@ -25,19 +25,18 @@ const Book = ({ books }) => {
                 className="grid md:grid-cols-3 gap-4 py-5"
             >
                 {books &&
-                    // eslint-disable-next-line react/prop-types
                     books.slice(0, 9).map(book =>
                         <Link
                             to={`/${book?.book_name}`}
                             key={book._id}
-                            className="w-full p-5 group cursor-pointer  drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] bg-white flex justify-between space-x-3 items-center rounded-2xl transition-all duration-500"
+                            className="w-full p-5 group cursor-pointer  drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] bg-white flex justify-between items-center space-x-3 rounded-2xl transition-all duration-500 dark:bg-slate-600"
                         >
                             <div
                                 className="w-12"
                             >
                                 <div
-                                    className="flex justify-center items-center bg-gray-200 group-hover:bg-[#2b9e76] group-hover:text-white text-gray-400 w-12 h-12 rounded-full"
-                                >
+                            className="flex justify-center items-center bg-gray-200 group-hover:bg-[#2b9e76] group-hover:text-white text-gray-400 w-12 h-12 rounded-full dark:bg-slate-500"
+                        >
                                     {book?.abvr_code}
                                 </div>
                             </div>
@@ -49,7 +48,7 @@ const Book = ({ books }) => {
                                 >
                                     {book?.title}
                                 </p>
-                                <p className="text-gray-500 text-sm">
+                                <p className="text-gray-500 text-sm dark:text-gray-300">
                                     হাদিসের রেঞ্জ: {toBengaliNumber(book?.number_of_hadis)}
                                 </p>
                             </div>

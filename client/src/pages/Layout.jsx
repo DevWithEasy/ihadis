@@ -12,6 +12,7 @@ import MenuPopup from '../component/MenuPopup'
 import NavigationFooter from '../component/NavigationFooter'
 import BookSearchModal from '../component/book/BookSearchModal'
 import { book, bookmark, home, subject } from '../utils/images'
+import { IoSunnyOutline } from 'react-icons/io5'
 
 const Layout = ({ children }) => {
     const navigate = useNavigate()
@@ -20,6 +21,19 @@ const Layout = ({ children }) => {
     const [menu, setMenu] = useState(false)
     const [view, setView] = useState(false)
     const [query, setQuery] = useState('')
+    const [dark, setDark] = useState(false)
+
+    const darkHandler = () => {
+        if (dark) {
+            const root = window.document.documentElement;
+            root.classList.remove('dark')
+            setDark(false)
+        } else {
+            const root = window.document.documentElement;
+            root.classList.add('dark')
+            setDark(true)
+        }
+    }
     const links = [
         {
             path: '/',
@@ -50,10 +64,10 @@ const Layout = ({ children }) => {
 
     return (
         <div
-            className="h-screen flex bg-white"
+            className="h-screen flex bg-white dark:bg-slate-600"
         >
             <div
-                className='fixed top-0 left-0 w-full p-4 flex justify-between z-10 bg-white rorder-b shadow md:shadow-none'
+                className='fixed top-0 left-0 w-full p-4 flex justify-between z-10 bg-white rorder-b shadow md:shadow-none dark:bg-slate-600 dark:text-white'
             >
                 <h1
                     className='flex items-center space-x-4'
@@ -74,16 +88,16 @@ const Layout = ({ children }) => {
                 >
                     <form
                         onSubmit={searchHadith}
-                        className='hidden md:flex justify-between items-center space-x-2 p-3 border-2 rounded-lg'
+                        className='hidden md:flex justify-between items-center space-x-2 px-3 border-2 rounded-lg dark:border-gray-500'
                     >
                         <BiSearch
-                            className='text-gray-500'
+                            className='text-gray-500 dark:text-white'
                         />
                         <input
                             type='text'
                             onChange={(e) => setQuery(e.target.value)}
                             placeholder='Search Hadith'
-                            className='font-light text-sm focus:outline-none'
+                            className='py-3 font-light text-sm focus:outline-none dark:bg-slate-600'
                         />
                     </form>
                     <BiSearch
@@ -91,10 +105,19 @@ const Layout = ({ children }) => {
                         onClick={() => setView(!view)}
                         className="md:hidden bg-gray-200 p-2 rounded cursor-pointer"
                     />
-                    <PiMoonStarsLight
+                    {dark ?
+                        <PiMoonStarsLight
                         size={40}
-                        className="bg-gray-200 p-2 rounded cursor-pointer"
+                        onClick={darkHandler}
+                        className="bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700"
                     />
+                    :
+                    <IoSunnyOutline
+                        size={40}
+                        onClick={darkHandler}
+                        className="bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700"
+                    />
+                    }
                 </div>
             </div>
             <div
@@ -160,7 +183,7 @@ const Layout = ({ children }) => {
             </div>
             <NavigationFooter {...{ open, setOpen }} />
             <div
-                className="relative w-full bg-gray-100 md:rounded-tl-3xl pt-[65px] md:mt-[80px] md:p-4"
+                className="relative w-full bg-gray-100 md:rounded-tl-3xl pt-[65px] md:mt-[80px] md:p-4 dark:bg-slate-700"
             >
                 {children}
 

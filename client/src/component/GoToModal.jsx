@@ -18,6 +18,9 @@ const GoToModal = ({ open, setOpen }) => {
 
     const handleNavigate = (e) => {
         e.preventDefault()
+        if(!hadithId){
+            return alert('হাদিস নং দিন')
+        }
         navigate(`/${book.book_name}/hadith/${hadithId}`)
         setOpen(!open)
     }
@@ -26,11 +29,10 @@ const GoToModal = ({ open, setOpen }) => {
         <div
             id='wrapper'
             onClick={handleOpen}
-            className="h-screen w-full fixed top-0 left-0 z-40 bg-black/50 flex justify-center items-center"
+            className="h-screen w-full fixed top-0 left-0 z-40 bg-slate-900/50 flex justify-center items-center"
         >
-            <form
-                onSubmit={handleNavigate}
-                className="w-11/12 md:w-4/12 mx-auto space-y-5 p-6 bg-white rounded-2xl animate-open"
+            <div
+                className="w-11/12 md:w-4/12 mx-auto space-y-5 p-6 bg-white rounded-2xl animate-open dark:bg-slate-700 dark:text-gray-300"
             >
                 <h2
                     className='flex space-x-3'
@@ -58,7 +60,7 @@ const GoToModal = ({ open, setOpen }) => {
                     </button>
                     {view &&
                         <div
-                            className='absolute left-0 top-[58px] h-40 p-2 space-y-1  w-full overflow-y-auto drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] bg-white shadow-lg rounded-lg'
+                            className='absolute left-0 top-[58px] h-40 p-2 space-y-1  w-full overflow-y-auto drop-shadow-[0_2px_20px_rgba(0,0,0,0.05)] bg-white shadow-lg rounded-lg dark:bg-gray-700'
                         >
                             {books.map((book) =>
                                 <button
@@ -75,22 +77,27 @@ const GoToModal = ({ open, setOpen }) => {
                         </div>
                     }
                 </div>
-                <input
-                    type='text'
-                    onChange={(e) => setHadithId(e.target.value)}
-                    placeholder='Hadith no'
-                    className='w-full px-4 py-3 focus:outline-none border focus:border-[#2b9e76] rounded-lg'
-                />
-                <div
-                    className='flex justify-end'
+                <form
+                    onSubmit={handleNavigate}
+                    className='space-y-4'
                 >
-                    <button
-                        className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-lg'
+                    <input
+                        type='text'
+                        onChange={(e) => setHadithId(e.target.value)}
+                        placeholder='Hadith no'
+                        className='w-full px-4 py-3 focus:outline-none border focus:border-[#2b9e76] rounded-lg dark:bg-slate-700'
+                    />
+                    <div
+                        className='flex justify-end'
                     >
-                        প্রয়োগ করুন
-                    </button>
-                </div>
-            </form>
+                        <button
+                            className='px-4 py-2 bg-[#2b9e76] text-white text-sm rounded-lg'
+                        >
+                            প্রয়োগ করুন
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

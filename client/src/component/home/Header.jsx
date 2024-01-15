@@ -1,16 +1,31 @@
 import { BiDonateBlood } from 'react-icons/bi';
 import { HiOutlineHome } from 'react-icons/hi';
 import { PiMoonStarsLight } from 'react-icons/pi';
-import {AiOutlineMenu} from 'react-icons/ai' 
+import { AiOutlineMenu } from 'react-icons/ai'
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/home-logo.png";
+import { useState } from 'react';
+import { IoSunnyOutline } from "react-icons/io5";
 
 
-// eslint-disable-next-line react/prop-types
-const Header = ({ open, setOpen ,menu,setMenu}) => {
+const Header = ({ open, setOpen, menu, setMenu }) => {
+    const [dark, setDark] = useState(false)
+
+    const darkHandler = () => {
+        if (dark) {
+            const root = window.document.documentElement;
+            root.classList.remove('dark')
+            setDark(false)
+        } else {
+            const root = window.document.documentElement;
+            root.classList.add('dark')
+            setDark(true)
+        }
+    }
+
     return (
         <div
-            className='w-full fixed top-0 z-20 flex justify-between items-center p-4 bg-white'
+            className='w-full fixed top-0 z-20 flex justify-between items-center p-4 bg-white dark:bg-slate-600 dark:text-gray-300'
         >
             <div
                 className='w-1/2 md:w-4/12 flex items-center space-x-2'
@@ -63,14 +78,23 @@ const Header = ({ open, setOpen ,menu,setMenu}) => {
             <div
                 className='w-1/2 md:w-4/12 flex justify-end items-center space-x-4'
             >
-                <PiMoonStarsLight
-                    size={30}
-                    className="bg-gray-200 p-1 rounded cursor-pointer"
-                />
+                {dark ?
+                    <PiMoonStarsLight
+                        size={30}
+                        onClick={darkHandler}
+                        className="bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700"
+                    />
+                    :
+                    <IoSunnyOutline
+                        size={30}
+                        onClick={darkHandler}
+                        className="bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700"
+                    />
+                }
                 <AiOutlineMenu
                     size={30}
-                    onClick={()=>setMenu(!menu)}
-                    className="md:hidden bg-gray-200 p-1 rounded cursor-pointer"
+                    onClick={() => setMenu(!menu)}
+                    className="md:hidden bg-gray-200 p-1 rounded cursor-pointer dark:bg-slate-700"
                 />
                 <Link
                     to='/donate'

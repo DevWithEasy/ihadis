@@ -40,7 +40,7 @@ const SearchSetting = ({query, view, setView }) => {
     }, [bookId])
     return (
         <div
-            className='absolute -left-3 top-20 z-10 w-full px-6 py-10 bg-white text-black rounded-lg shadow'
+            className='absolute -left-3 top-20 z-10 w-full px-6 py-10 bg-white text-black rounded-lg shadow dark:bg-slate-600 dark:text-gray-300'
         >
             <div
                 className='flex justify-between gap-4'
@@ -151,7 +151,7 @@ const SearchSetting = ({query, view, setView }) => {
             >
                 <button
                     onClick={() => setView(!view)}
-                    className='px-4 py-2 bg-gray-100 text-sm rounded-md'
+                    className='px-4 py-2 bg-gray-100 text-sm rounded-md dark:bg-slate-700 dark:text-white'
                 >
                     বাতিল
                 </button>
