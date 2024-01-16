@@ -2,11 +2,23 @@ import React from 'react';
 import BookHeader from './BookHeader';
 import BookList from './BookList';
 import ChapterList from './ChapterList';
+import {motion} from 'framer-motion'
 
 const Menu = ({ name, menu, setMenu, state, setState, page, handleChange }) => {
-    console.log(page)
+    
     return (
-        <div
+        <motion.div
+            initial={{
+                opacity: 0,
+                x : -1000,
+            }}
+            animate={{
+                opacity: 1,
+                x : 0,
+            }}
+            transition={{
+                duration : 0.5,
+            }}
             className='fixed top-0 left-0 h-screen w-full bg-white z-50 overflow-y-auto dark:bg-slate-600'
         >
             <div
@@ -32,7 +44,7 @@ const Menu = ({ name, menu, setMenu, state, setState, page, handleChange }) => {
 
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

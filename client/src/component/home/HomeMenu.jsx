@@ -7,11 +7,23 @@ import { FiBookOpen } from 'react-icons/fi'
 import { BsSend } from 'react-icons/bs'
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import {useNavigate} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 const HomeMenu = ({ open,setOpen,menu, setMenu }) => {
     const navigate = useNavigate()
     return (
-        <div
+        <motion.div
+            initial={{
+                opacity: 0,
+                x : 1000,
+            }}
+            animate={{
+                opacity: 1,
+                x : 0,
+            }}
+            transition={{
+                duration : 0.5,
+            }}
             className='fixed top-0 left-0 h-screen w-full bg-white z-50 overflow-y-auto dark:bg-slate-700 dark:text-gray-300'
         >
             <div
@@ -105,7 +117,7 @@ const HomeMenu = ({ open,setOpen,menu, setMenu }) => {
                     </button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

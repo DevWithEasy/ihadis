@@ -5,6 +5,7 @@ import HeroSelect from '../home/HeroSelect';
 import axios from 'axios';
 import apiUrl from '../../utils/apiUrl';
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const BookSearchModal = ({ view, setView }) => {
     const navigate = useNavigate()
@@ -45,7 +46,18 @@ const BookSearchModal = ({ view, setView }) => {
         <div
             className='fixed left-0 top-0 h-screen w-full  pt-10 bg-black/50 z-10 dark:bg-slate-700/50'
         >
-            <div
+            <motion.div
+                initial={{
+                    opacity: 0,
+                    y: -1000,
+                }}
+                animate={{
+                    opacity: 1,
+                    y: 0,
+                }}
+                transition={{
+                    duration: 0.3,
+                }}
                 className='w-11/12 p-4 mx-auto bg-white rounded-xl dark:bg-slate-700 dark:text-gray-300'
             >
                 <div
@@ -174,7 +186,7 @@ const BookSearchModal = ({ view, setView }) => {
                         সার্চ করুন
                     </button>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };
