@@ -1,6 +1,7 @@
 import React from 'react';
 import copy from '../assets/images/copy.svg';
 import { FaWhatsapp, FaFacebookF, FaLinkedinIn, FaTwitter, FaTelegramPlane } from "react-icons/fa";
+import { toast } from 'react-toastify';
 
 const HadithShareModal = ({ url, shareView, SetShareView }) => {
     const handleOpen = (e) => {
@@ -11,7 +12,11 @@ const HadithShareModal = ({ url, shareView, SetShareView }) => {
     const handleCopyHadith = () => {
         try {
             navigator.clipboard.writeText(url)
-            alert('Hadith copied')
+            toast('Hadith copied', {
+                position: "bottom-right",
+                autoClose: 2000,
+                closeOnClick: true,
+            })
         } catch (error) {
             console.log(error)
         }
@@ -67,7 +72,7 @@ const HadithShareModal = ({ url, shareView, SetShareView }) => {
                     <img
                         src={copy}
                         onClick={handleCopyHadith}
-                        className='absolute right-3 top-3 cursor-pointer'
+                        className='absolute right-2 top-1.5 cursor-pointer bg-white p-1.5'
                     />
                 </div>
                 <div

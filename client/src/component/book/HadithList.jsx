@@ -8,7 +8,7 @@ import HadithChapter from './HadithChapter';
 import HadithSection from './HadithSection';
 
 
-const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChange }) => {
+const HadithList = ({ name, state, setState, book, chapter, hadiths, page, handleChange }) => {
     const [menu, setMenu] = useState(false)
     return (
         <div
@@ -26,44 +26,48 @@ const HadithList = ({name,state,setState, book, chapter, hadiths,page,handleChan
                 <span className="text-sm">{chapter?.id}</span>
             </div>
             <div
-                className="h-[cal(100%-52px)] md:px-4 overflow-y-auto space-y-2 -mb-3 pt-6 md:pt-0 pb-2 md:mt-0 dark:px-2"
+                className="h-[cal(100%-52px)] overflow-y-auto space-y-2 md:space-y-0 -mb-3 pt-2 md:pt-0 pb-2 md:mt-0 dark:px-2"
             >
                 <div
-                    onClick={() => setMenu(!menu)}
-                    className='md:hidden p-4 my-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer dark:bg-slate-700'
+                    className='dark:md:mt-2'
                 >
-                    <AiOutlineMenu size={20} />
-                    <span className="text-xl">{book?.title}</span>
-                </div>
+                    <div
+                        onClick={() => setMenu(!menu)}
+                        className='md:hidden p-4 my-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer dark:bg-slate-700'
+                    >
+                        <AiOutlineMenu size={20} />
+                        <span className="text-xl">{book?.title}</span>
+                    </div>
 
-                <HadithBook {...{book}}/>
+                    <HadithBook {...{ book }} />
 
-                <HadithChapter {...{chapter}}/>
+                    <HadithChapter {...{ chapter }} />
 
 
-                <div
-                    className='space-y-4'
-                >
-                    {hadiths &&
-                        hadiths.map(section =>
-                            <div
-                                key={section?._id}
-                                className='space-y-2'
-                            >
-                                <HadithSection {...{section}}/>
+                    <div
+                        className='space-y-4'
+                    >
+                        {hadiths &&
+                            hadiths.map(section =>
+                                <div
+                                    key={section?._id}
+                                    className='space-y-2'
+                                >
+                                    <HadithSection {...{ section }} />
 
-                                {
-                                    section.hadiths.map(hadith =>
-                                        <Hadith key={hadith._id} {...{book,hadith}}/>
-                                    )
-                                }
-                            </div>
-                        )
-                    }
+                                    {
+                                        section.hadiths.map(hadith =>
+                                            <Hadith key={hadith._id} {...{ book, hadith }} />
+                                        )
+                                    }
+                                </div>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
             {menu &&
-                <Menu {...{name,menu,setMenu,state,setState,page,handleChange}}/>
+                <Menu {...{ name, menu, setMenu, state, setState, page, handleChange }} />
             }
         </div>
     );

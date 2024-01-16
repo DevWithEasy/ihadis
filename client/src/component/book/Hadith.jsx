@@ -8,6 +8,7 @@ import report from '../../assets/images/report.svg';
 import share from '../../assets/images/share.svg';
 import HadithShareModal from '../HadithShareModal';
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 const Hadith = ({ book, hadith }) => {
     const navigate = useNavigate()
@@ -17,6 +18,7 @@ const Hadith = ({ book, hadith }) => {
         `https://ihadis.onrender.com/${hadith?.book?.book_name}/hadith/${hadith?.hadith_id}`
         :
         `https://ihadis.onrender.com/${book?.book_name}/hadith/${hadith?.hadith_id}`
+
     const hadithCopy = `${hadith?.narrator}
     
 ${hadith?.bn}
@@ -24,10 +26,15 @@ ${hadith?.bn}
 ${hadith?.hadith_key}
 হাদিসের মানঃ ${hadith?.grade}
 Source: ${url}`
+
     const handleCopyHadith = () => {
         try {
             navigator.clipboard.writeText(hadithCopy)
-            alert('Hadith copied')
+            toast('Hadith copied', {
+                position: "bottom-right",
+                autoClose: 2000,
+                closeOnClick: true,
+            })
         } catch (error) {
             console.log(error)
         }

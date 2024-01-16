@@ -9,7 +9,7 @@ import SubMenu from './SubMenu';
 
 const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, page, handleChange }) => {
     const [menu, setMenu] = useState(false)
-    
+
     return (
         <div
             className="w-full h-full pb-[46px] md:pb-0 flex flex-col rounded-2xl overflow-hidden dark:bg-slate-600 dark:text-gray-300"
@@ -28,28 +28,32 @@ const CatHadithList = ({ id, state, setState, category, categorySub, hadiths, pa
                 <span className="text-sm">{categorySub?.id}</span>
             </div>
             <div
-                className="h-[cal(100%-52px)] md:px-4 overflow-y-auto space-y-2 -mb-3 pt-6 md:pt-0 pb-2 md:mt-0 dark:px-2"
+                className="h-[cal(100%-52px)] overflow-y-auto space-y-2 -mb-3 pt-6 md:pt-0 pb-2 md:mt-0 dark:px-2 dark:md:px-4"
             >
                 <div
-                    onClick={() => setMenu(!menu)}
-                    className='md:hidden mt-4 p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                    className='dark:md:mt-2'
                 >
-                    <AiOutlineMenu size={20} />
-                    <span className="text-xl">{category?.bn}</span>
-                </div>
+                    <div
+                        onClick={() => setMenu(!menu)}
+                        className='md:hidden mt-4 p-4 mb-2 flex items-center space-x-2 bg-white rounded-xl cursor-pointer'
+                    >
+                        <AiOutlineMenu size={20} />
+                        <span className="text-xl">{category?.bn}</span>
+                    </div>
 
-                <HadithBook {...{ book: category }} />
+                    <HadithBook {...{ book: category }} />
 
-                <HadithChapter {...{ chapter: categorySub }} />
+                    <HadithChapter {...{ chapter: categorySub }} />
 
-                <div
-                    className='space-y-4'
-                >
-                    {hadiths &&
-                        hadiths.map(hadith =>
-                            <Hadith key={hadith._id} {...{ hadith }} />
-                        )
-                    }
+                    <div
+                        className='space-y-4'
+                    >
+                        {hadiths &&
+                            hadiths.map(hadith =>
+                                <Hadith key={hadith._id} {...{ hadith }} />
+                            )
+                        }
+                    </div>
                 </div>
             </div>
             {menu &&

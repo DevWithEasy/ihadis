@@ -19,7 +19,7 @@ const HadithListSkalaton = () => {
                 <span className="w-10 h-5 bg-gray-200  rounded-full inline-block animate-pulse dark:bg-slate-600"></span>
             </div>
             <div
-                className="h-[cal(100%-52px)] overflow-y-auto px-2"
+                className="h-[cal(100%-52px)] overflow-y-auto dark:md:px-2"
             >
                 <div
                     className='mb-4 p-4 flex justify-between items-center bg-white md:rounded-b-lg dark:bg-slate-700 dark:rounded-xl dark:mt-2 dark:md:mt-0'
