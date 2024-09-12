@@ -1,8 +1,10 @@
-const { getAllBooks, getHomeData, getBookChapters, getHadithByChapter, goToHadith, searchHadith, getWritters, getValidities } = require('../controllers/bookControllers')
+const { getAllBooks, getHomeData, getBookChapters, getHadithByChapter, goToHadith, searchHadith, getWritters, getValidities, getbooks, getbook } = require('../controllers/bookControllers')
 
 const router = require('express').Router()
 
-router.get('/Home',getHomeData)
+router.get('/', getbooks)
+    .get('/:id', getbook)
+    .get('/Home',getHomeData)
     .get('/chapter/:id',getBookChapters)
     .get('/hadith/:id/:chapterId',getHadithByChapter)
     .get('/hadith/find/:bookId/:hadithId',goToHadith)

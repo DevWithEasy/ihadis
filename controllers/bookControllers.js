@@ -301,3 +301,47 @@ exports.getValidities = async (req, res, next) => {
         })
     }
 }
+
+exports.getbooks = async (req, res, next) => {
+    try {
+        const books = await Book.find({}).sort({ id: 1 })
+        
+        res.status(200).json({
+            success: true,
+            status: 200,
+            message: 'Books found',
+            data: {
+                books,
+            }
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: error.message,
+            data: {}
+        })
+    }
+}
+
+exports.getbook = async (req, res, next) => {
+    try {
+        const book = await Book.findById(req.params.id)
+        
+        res.status(200).json({
+            success: true,
+            status: 200,
+            message: 'Books found',
+            data: {
+                book
+            }
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: error.message,
+            data: {}
+        })
+    }
+}
