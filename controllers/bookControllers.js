@@ -120,21 +120,31 @@ exports.getAllBooks = async (req, res, next) => {
 exports.goToHadith = async (req, res, next) => {
     try {
         const hadith = await Hadith.findOne({ book_id: req.params.bookId, hadith_id: req.params.hadithId })
+
+        if(hadith){
+            const chapter = await Chapter.findOne({ chapter_id: hadith.chapter_id })
         
-        const chapter = await Chapter.findOne({ chapter_id: hadith.chapter_id })
+            const section = await Section.findOne({ chapter_id: hadith.chapter_id })
+            
+            res.status(200).json({
+                success: true,
+                status: 200,
+                message: 'Hadiths found',
+                data: {
+                    chapter,
+                    section,
+                    hadith
+                }
+            })
+        }else{
+            return res.json({
+                success: true,
+                status: 200,
+                message: 'Hadiths not found',
+                data: {}
+            })
+        }
         
-        const section = await Section.findOne({ chapter_id: hadith.chapter_id })
-        
-        res.status(200).json({
-            success: true,
-            status: 200,
-            message: 'Hadiths found',
-            data: {
-                chapter,
-                section,
-                hadith
-            }
-        })
     } catch (error) {
         console.log(error)
         res.status(500).json({
